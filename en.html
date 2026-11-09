@@ -703,6 +703,10 @@
     });
     document.getElementById('quoteForm').addEventListener('submit', event => {
       event.preventDefault();
+      if (currentQuoteStep < 3) {
+        if (validateQuoteStep(currentQuoteStep)) showQuoteStep(currentQuoteStep + 1);
+        return;
+      }
       const invalid = Array.from(quoteForm.querySelectorAll('[required]')).find(control => !control.checkValidity());
       if (invalid) {
         const panel = invalid.closest('[data-step-panel]');
