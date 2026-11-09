@@ -5,7 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="AETOS TRAVEL diseña viajes internacionales personalizados y experiencias exclusivas de aventura, naturaleza y cultura en Sudamérica y Europa." />
   <meta name="theme-color" content="#102b35" />
-  <title>AETOS TRAVEL | Lujo moderno y aventura</title>
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://mexiaeon.github.io/aetos-travel/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b817f'/%3E%3Cpath d='M32 10 8 52h10l14-25 14 25h10L32 10Z' fill='white'/%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AETOS TRAVEL" />
+  <meta property="og:title" content="AETOS TRAVEL | Viajes a medida por Sudamérica y Europa" />
+  <meta property="og:description" content="Diseñamos viajes internacionales personalizados, experiencias de aventura, cultura y estancias especiales." />
+  <meta property="og:url" content="https://mexiaeon.github.io/aetos-travel/" />
+  <meta property="og:image" content="https://mexiaeon.github.io/aetos-travel/aetos-cover.webp" />
+  <meta property="og:image:alt" content="Portada de AETOS TRAVEL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AETOS TRAVEL | Viajes a medida" />
+  <meta name="twitter:description" content="Descubre Sudamérica y Europa con itinerarios diseñados a tu medida." />
+  <meta name="twitter:image" content="https://mexiaeon.github.io/aetos-travel/aetos-cover.webp" />
+  <title>AETOS TRAVEL | Viajes a medida por Sudamérica y Europa</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "AETOS TRAVEL",
+    "url": "https://mexiaeon.github.io/aetos-travel/",
+    "logo": "https://mexiaeon.github.io/aetos-travel/aetos-logo.webp",
+    "image": "https://mexiaeon.github.io/aetos-travel/aetos-cover.webp",
+    "email": "aetostravel@gmail.com",
+    "description": "Agencia de viajes con itinerarios personalizados y experiencias de viaje en Sudamérica y Europa.",
+    "areaServed": ["South America", "Europe"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -218,22 +245,70 @@
       .search-wrap { margin-top:-20px; }
     }
 
+    /* Mejoras de usabilidad y conversión */
+    .skip-link { position:absolute; left:12px; top:-60px; z-index:100; background:#fff; color:var(--ink); padding:12px 16px; border-radius:10px; box-shadow:var(--shadow); }
+    .skip-link:focus { top:12px; }
+    :focus-visible { outline:3px solid #d5ad70; outline-offset:3px; }
+    .included-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:15px; margin-top:34px; }
+    .included-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:23px 20px; min-height:200px; }
+    .included-icon { display:grid; place-items:center; width:42px; height:42px; border-radius:13px; color:var(--teal); background:var(--mint); font-size:22px; margin-bottom:16px; }
+    .included-card h3 { margin:0 0 8px; font-size:16px; }
+    .included-card p { color:var(--muted); font-size:12px; line-height:1.7; margin:0; }
+    .included-note { color:var(--muted); font-size:11px; line-height:1.65; margin:18px 0 0; }
+    .faq-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:65px; align-items:start; }
+    .faq-cta { margin-top:24px; }
+    .faq-list { border-top:1px solid var(--line); }
+    .faq-item { border-bottom:1px solid var(--line); padding:0; }
+    .faq-item summary { list-style:none; cursor:pointer; padding:20px 34px 20px 0; font:700 14px Manrope,sans-serif; position:relative; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-item summary::after { content:'+'; position:absolute; right:4px; top:15px; color:var(--teal); font-size:23px; font-weight:400; }
+    .faq-item[open] summary::after { content:'−'; }
+    .faq-item p { color:var(--muted); font-size:13px; line-height:1.75; margin:0; padding:0 24px 20px 0; }
+    #quoteForm .field-control:focus-within { border-bottom-color:var(--teal); }
+    #quoteForm select, #quoteForm input { min-height:25px; }
+    #quoteForm .field { min-width:0; }
+    @media (max-width: 900px) {
+      .included-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .faq-layout { grid-template-columns:1fr; gap:28px; }
+    }
+    @media (max-width: 820px) {
+      .nav { min-height:68px; }
+      .menu-toggle { display:grid; place-items:center; }
+      .nav-links { display:none; position:absolute; top:68px; left:0; right:0; padding:18px 22px 22px; background:#fff; border-bottom:1px solid var(--line); flex-direction:column; align-items:stretch; gap:18px; }
+      .nav-links.open { display:flex; }
+      .nav-links .btn { width:100%; }
+    }
+    @media (max-width: 650px) {
+      .package-grid { grid-template-columns:1fr; }
+      .included-grid { grid-template-columns:1fr; }
+      .included-card { min-height:0; }
+      .faq-item summary { font-size:13px; }
+      #quoteForm { grid-template-columns:1fr !important; }
+      #quoteForm .field[style*="grid-column"] { grid-column:1 !important; }
+      #quoteForm > div[style*="grid-column"] { grid-column:1 !important; }
+      #quoteForm button[type="submit"] { width:100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div class="topline"><div class="container topline-inner"><span><i class="topline-dot"></i> Viajes extraordinarios · Sudamérica y Europa</span><span>Diseñados a tu medida · Atención internacional</span></div></div>
   <header>
     <div class="container nav">
       <a class="brand logo-brand" href="#inicio" aria-label="AETOS TRAVEL, inicio"><img src="aetos-logo.webp" alt="Logotipo oficial de AETOS TRAVEL"></a>
       <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
-        <a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a><a href="#experiencias">Experiencias</a><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo funciona</a>
+        <a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a><a href="#experiencias">Experiencias</a><a href="#incluye">Servicios</a><a href="#preguntas">FAQ</a><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo funciona</a>
         <a class="btn" href="#cotizar">Cotiza tu viaje <span aria-hidden="true">↗</span></a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" id="inicio" aria-label="Portada AETOS TRAVEL">
       <img class="hero-cover" src="aetos-cover.webp" alt="AETOS TRAVEL: explora, descubre y pertenece. El mundo te espera.">
       <div class="hero-after"><div><strong>Tu próxima aventura comienza aquí.</strong><span> Viajes a medida por Sudamérica y Europa.</span></div><a class="btn" href="#cotizar">Solicita tu cotización ↗</a></div>
@@ -334,6 +409,36 @@
       </div>
     </section>
 
+    <section class="section section-soft" id="incluye">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">PLANEACIÓN AETOS</div><h2>Todo empieza con un plan claro.</h2></div>
+          <p class="section-desc">Cada viaje se adapta a tu destino, fechas y estilo. Estos son algunos de los elementos que podemos revisar contigo al preparar tu propuesta.</p>
+        </div>
+        <div class="included-grid">
+          <article class="included-card"><span class="included-icon">✈</span><h3>Vuelos y conexiones</h3><p>Opciones de rutas, horarios y conexiones según tu ciudad de salida y destino.</p></article>
+          <article class="included-card"><span class="included-icon">⌂</span><h3>Hospedaje</h3><p>Alternativas de hoteles, resorts y alojamientos boutique de acuerdo con tu presupuesto.</p></article>
+          <article class="included-card"><span class="included-icon">↗</span><h3>Traslados y experiencias</h3><p>Posibles traslados, visitas guiadas, actividades y experiencias locales.</p></article>
+          <article class="included-card"><span class="included-icon">◷</span><h3>Itinerario personalizado</h3><p>Una propuesta organizada por días, con tiempos y servicios sujetos a confirmación.</p></article>
+        </div>
+        <p class="included-note">Los servicios disponibles dependen del destino, las fechas y los proveedores. La cotización indicará claramente qué está incluido y qué no.</p>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas">
+      <div class="container faq-layout">
+        <div><div class="section-kicker">PREGUNTAS FRECUENTES</div><h2>Antes de empezar tu viaje.</h2><p class="section-desc" style="margin-top:15px">Resolvemos algunas dudas habituales para que sepas qué esperar desde el primer contacto.</p><a class="btn faq-cta" href="#cotizar">Solicitar una cotización ↗</a></div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>¿La cotización tiene algún costo?</summary><p>Comparte tu idea y revisaremos el alcance de tu solicitud. Cualquier cargo de planeación, cuando aplique, se informará antes de avanzar.</p></details>
+          <details class="faq-item"><summary>¿Los paquetes tienen precio fijo?</summary><p>No. Las rutas publicadas son ejemplos para inspirarte. El precio final depende de fechas, ciudad de salida, número de viajeros, servicios y disponibilidad.</p></details>
+          <details class="faq-item"><summary>¿Puedo combinar varios países?</summary><p>Sí. Puedes solicitar una ruta personalizada que combine diferentes ciudades o países. Indícalo en el formulario.</p></details>
+          <details class="faq-item"><summary>¿Puedo viajar con niños o en grupo?</summary><p>Sí. Cuéntanos cuántos adultos y menores viajarán para considerar sus necesidades al preparar la propuesta.</p></details>
+          <details class="faq-item"><summary>¿Cómo se confirma una reserva?</summary><p>La cotización no representa una reserva confirmada. Antes de cualquier pago, revisa la propuesta, los servicios incluidos, las condiciones y la disponibilidad final.</p></details>
+          <details class="faq-item"><summary>¿Qué pasa si todavía no tengo fechas?</summary><p>No hay problema. Selecciona fechas flexibles o indica que aún estás definiéndolas en los detalles de tu solicitud.</p></details>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-soft" id="proceso">
       <div class="container"><div class="section-kicker">Así de sencillo</div><h2>De la idea al destino.</h2><p class="section-desc" style="margin-top:15px">Un proceso cercano para que tengas claridad desde el primer mensaje.</p>
         <div class="steps">
@@ -363,9 +468,14 @@
             <div class="field"><label for="tripType">Tipo de viaje / Trip type</label><div class="field-control"><select id="tripType" name="tripType"><option value="Ida y vuelta" selected>Round trip · Ida y vuelta</option><option value="Solo ida">One way · Solo ida</option></select></div></div>
             <div class="field"><label for="departureDate">Fecha de salida</label><div class="field-control"><input id="departureDate" name="departureDate" type="date" /></div></div>
             <div class="field trip-return-field" id="quoteReturnField"><label for="returnDate">Fecha de regreso</label><div class="field-control"><input id="returnDate" name="returnDate" type="date" /></div></div>
+            <div class="field"><label for="adults">Adultos</label><div class="field-control"><select id="adults" name="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7 o más</option></select></div></div>
+            <div class="field"><label for="children">Niños (menores de 18)</label><div class="field-control"><select id="children" name="children"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5 o más</option></select></div></div>
+            <div class="field"><label for="hotelCategory">Tipo de hospedaje preferido</label><div class="field-control"><select id="hotelCategory" name="hotelCategory"><option>Por recomendar</option><option>3 estrellas / cómodo</option><option>4 estrellas / superior</option><option>5 estrellas / lujo</option><option>Hotel boutique</option><option>Departamento o alojamiento privado</option></select></div></div>
+            <div class="field"><label for="dateFlexibility">Flexibilidad de fechas</label><div class="field-control"><select id="dateFlexibility" name="dateFlexibility"><option>Fechas exactas</option><option>Flexible por algunos días</option><option>Flexible por semanas</option><option>Aún no tengo fechas</option></select></div></div>
             <div class="field"><label for="budget">Presupuesto aproximado</label><div class="field-control"><select id="budget" name="budget"><option value="Por definir">Aún no lo sé</option><option>Menos de 1,000</option><option>1,000–2,500</option><option>2,500–5,000</option><option>Más de 5,000</option></select></div></div>
             <div class="field"><label for="currency">Moneda del presupuesto</label><div class="field-control"><select id="currency" name="currency"><option>USD - Dólar estadounidense</option><option>EUR - Euro</option><option>MXN - Peso mexicano</option><option>Otra / por definir</option></select></div></div>
             <div class="field"><label for="language">Idioma de atención</label><div class="field-control"><select id="language" name="language"><option>Español</option><option>English</option></select></div></div>
+            <div class="field" style="grid-column:1/-1"><label for="interests">¿Qué experiencias te interesan?</label><div class="field-control"><select id="interests" name="interests"><option>Una combinación de experiencias</option><option>Aventura y naturaleza</option><option>Cultura, historia y gastronomía</option><option>Playas y descanso</option><option>Compras y vida urbana</option><option>Lujo y experiencias privadas</option><option>Viaje familiar</option><option>Luna de miel o escapada romántica</option></select></div></div>
             <div class="field" style="grid-column:1/-1"><label for="details">¿Cómo imaginas tu viaje?</label><div class="field-control" style="border:1px solid var(--line);border-radius:13px;padding:12px"><textarea id="details" name="details" rows="3" placeholder="Fechas, número de viajeros, tipo de hotel, tours y actividades que te interesan..." style="width:100%;border:0;outline:0;resize:vertical;color:var(--ink);background:transparent;font:13px 'DM Sans',sans-serif"></textarea></div></div>
             <div style="grid-column:1/-1"><button class="btn" type="submit">Enviar solicitud de viaje <span aria-hidden="true">→</span></button><div class="form-message" id="formMessage" role="status"></div><p style="font-size:10px;color:#89969a;line-height:1.6;margin:13px 0 0">Al enviar, se abrirá tu aplicación de correo con la solicitud preparada. Esta página no almacena tus datos.</p></div>
           </form>
@@ -377,7 +487,7 @@
   <footer>
     <div class="container"><div class="footer-grid">
       <div><a class="brand logo-brand" href="#inicio" aria-label="AETOS TRAVEL, inicio"><img src="aetos-logo.webp" alt="Logotipo oficial de AETOS TRAVEL"></a><p class="footer-about">AETOS TRAVEL crea viajes internacionales personalizados y experiencias exclusivas para descubrir Sudamérica y Europa con comodidad, curiosidad y espíritu aventurero.</p></div>
-      <div class="footer-col"><h4>Explora</h4><a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a><a href="#experiencias">Experiencias</a><a href="#nosotros">Nosotros</a></div>
+      <div class="footer-col"><h4>Explora</h4><a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a><a href="#experiencias">Experiencias</a><a href="#incluye">Servicios</a><a href="#preguntas">Preguntas frecuentes</a><a href="#nosotros">Nosotros</a></div>
       <div class="footer-col"><h4>Planea</h4><a href="#proceso">Cómo funciona</a><a href="#cotizar">Solicitar cotización</a><a href="#inicio">Volver arriba ↑</a></div>
       <div class="footer-col"><h4>Contacto</h4><p>Atención internacional</p><p>Atención por correo electrónico</p><p><a href="mailto:aetostravel@gmail.com">aetostravel@gmail.com</a></p></div>
     </div><div class="copyright"><span>© <span id="year"></span> AETOS TRAVEL. Todos los derechos reservados.</span><span>Los destinos e imágenes son ilustrativos. Servicios y cotizaciones sujetos a disponibilidad y confirmación.</span></div><p class="notice">AETOS TRAVEL · aetostravel@gmail.com · Los servicios se confirman mediante cotización y disponibilidad.</p></div>
@@ -452,7 +562,11 @@
       document.getElementById('departureDate').value = document.getElementById('quickDeparture').value;
       document.getElementById('returnDate').value = document.getElementById('quickReturn').value;
       syncTripFields('quote');
-      document.getElementById('details').value = 'Viajeros: ' + document.getElementById('quickPeople').value;
+      const quickPeople = document.getElementById('quickPeople').value;
+      const quickAdults = quickPeople === '5 o más' ? '5' : (parseInt(quickPeople, 10) || 2);
+      document.getElementById('adults').value = String(quickAdults);
+      document.getElementById('children').value = '0';
+      document.getElementById('details').value = 'Solicitud iniciada desde búsqueda rápida. Viajeros: ' + quickPeople + '.';
       document.getElementById('cotizar').scrollIntoView({ behavior: 'smooth' });
     });
     document.getElementById('quoteForm').addEventListener('submit', event => {
@@ -469,6 +583,11 @@
         'Tipo de viaje: ' + data.get('tripType'),
         'Fecha de salida: ' + (data.get('departureDate') || 'Por definir'),
         'Fecha de regreso: ' + (data.get('tripType') === 'Ida y vuelta' ? (data.get('returnDate') || 'Por definir') : 'No aplica · solo ida'),
+        'Adultos: ' + data.get('adults'),
+        'Niños: ' + data.get('children'),
+        'Hospedaje preferido: ' + data.get('hotelCategory'),
+        'Flexibilidad de fechas: ' + data.get('dateFlexibility'),
+        'Experiencias de interés: ' + data.get('interests'),
         'Presupuesto: ' + data.get('budget') + ' ' + data.get('currency'),
         'Idioma de atención: ' + data.get('language'),
         'Detalles: ' + (data.get('details') || 'Por definir')
