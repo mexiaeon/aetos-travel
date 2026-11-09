@@ -332,6 +332,7 @@
     .wizard-required-note { color:#89979b; font-size:10px; line-height:1.5; margin-right:auto; }
     .wizard-privacy { color:#89979b; font-size:10px; line-height:1.6; margin:14px 0 0; }
     .quote-wizard .form-message { margin-top:18px; }
+    .quote-wizard .form-message.success { display:block; padding:18px; background:#e7f3ed; color:#14584e; font-size:14px; line-height:1.7; border-radius:13px; }
     @media (max-width:650px) {
       .quote-wizard { padding:20px 16px; border-radius:16px; }
       .wizard-indicators { gap:5px; }
@@ -558,6 +559,7 @@
               <p class="wizard-tip">Solo usaremos estos datos para preparar y responder tu solicitud.</p>
             </section>
 
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
             <div class="wizard-actions">
               <button class="btn btn-light" id="quoteBack" type="button" hidden>← Volver</button>
               <span class="wizard-required-note" id="wizardRequiredNote">Los campos con * son obligatorios.</span>
@@ -585,6 +587,7 @@
     // Ejemplo México: 5218112345678. No incluyas +, espacios ni guiones.
     const WHATSAPP_NUMBER = ""; // Agrega el número internacional cuando esté disponible.
     const CONTACT_EMAIL = "aetostravel@gmail.com";
+    const FORM_ENDPOINT = "https://formsubmit.co/ajax/aetostravel@gmail.com";
     const IS_ENGLISH = document.documentElement.lang === 'en';
 
     function syncTripFields(scope) {
@@ -702,7 +705,7 @@
       showQuoteStep(1);
       document.getElementById('cotizar').scrollIntoView({ behavior: 'smooth' });
     });
-    document.getElementById('quoteForm').addEventListener('submit', event => {
+    document.getElementById('quoteForm').addEventListener('submit', async event => {
       event.preventDefault();
       if (currentQuoteStep < 3) {
         if (validateQuoteStep(currentQuoteStep)) showQuoteStep(currentQuoteStep + 1);
@@ -736,16 +739,49 @@
         (IS_ENGLISH ? 'Details: ' : 'Detalles: ') + (data.get('details') || (IS_ENGLISH ? 'To be decided' : 'Por definir'))
       ].join('\n');
       const notice = document.getElementById('formMessage');
-      if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
-        const subject = IS_ENGLISH ? 'Travel quote request - AETOS TRAVEL' : 'Solicitud de viaje - AETOS TRAVEL';
-        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
-        notice.textContent = IS_ENGLISH ? 'Your email draft is ready. Open your email app and send it to complete your request.' : 'Se preparó un correo para AETOS TRAVEL. Revisa tu aplicación de correo y envíalo para completar la solicitud.';
+      const submitButton = document.getElementById('quoteSubmit');
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = IS_ENGLISH ? 'Sending…' : 'Enviando…';
+      notice.classList.remove('show');
+      const payload = {
+        name: data.get('name'),
+        email: data.get('email'),
+        _replyto: data.get('email'),
+        _subject: IS_ENGLISH ? 'New travel quote request - AETOS TRAVEL' : 'Nueva solicitud de cotización - AETOS TRAVEL',
+        _template: 'table',
+        _url: window.location.href,
+        _honey: data.get('_honey') || '',
+        message: message
+      };
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        let result = {};
+        try { result = await response.json(); } catch (_) {}
+        if (!response.ok || result.success === false || result.success === 'false') {
+          throw new Error(result.message || 'Submission failed');
+        }
+        quoteForm.querySelectorAll('.wizard-top,.wizard-panel,.wizard-actions,.wizard-privacy').forEach(el => { el.hidden = true; });
+        notice.textContent = IS_ENGLISH
+          ? 'Thank you! Your travel request has been sent to AETOS TRAVEL. We will contact you by email.'
+          : '¡Gracias! Tu solicitud se envió correctamente a AETOS TRAVEL. Nos pondremos en contacto contigo por correo.';
         notice.classList.add('show');
-        return;
+        notice.classList.add('success');
+      } catch (error) {
+        notice.textContent = IS_ENGLISH
+          ? 'We could not send your request right now. Please try again in a moment or email aetostravel@gmail.com.'
+          : 'No pudimos enviar tu solicitud en este momento. Inténtalo de nuevo o escríbenos a aetostravel@gmail.com.';
+        notice.classList.add('show');
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
       }
-      window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
-      notice.textContent = IS_ENGLISH ? 'WhatsApp opened with your request ready. Review and send it so the agency can contact you.' : 'Se abrió WhatsApp con tu solicitud preparada. Revísala y envíala para que la agencia pueda contactarte.';
-      notice.classList.add('show');
     });
   </script>
 </body>
