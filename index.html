@@ -241,7 +241,15 @@
 
     <div class="container search-wrap">
       <form class="search-panel" id="quickSearch">
-        <div class="field"><label for="quickDestination">¿A dónde quieres ir?</label><div class="field-control"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="quickDestination" name="destination" placeholder="Ej. Perú, Italia, Colombia" /></div></div>
+        <div class="field"><label for="quickDestination">¿A dónde quieres ir?</label><div class="field-control"><select id="quickDestination" name="destination" required><option value="" selected disabled>Selecciona un país</option>
+          <optgroup label="Sudamérica">
+            <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option><option>Ecuador</option><option>Guyana</option><option>Paraguay</option><option>Perú</option><option>Surinam</option><option>Uruguay</option><option>Venezuela</option>
+          </optgroup>
+          <optgroup label="Europa">
+            <option>Alemania</option><option>Austria</option><option>Bélgica</option><option>Bulgaria</option><option>Chipre</option><option>Croacia</option><option>Dinamarca</option><option>Eslovaquia</option><option>Eslovenia</option><option>España</option><option>Estonia</option><option>Finlandia</option><option>Francia</option><option>Grecia</option><option>Hungría</option><option>Irlanda</option><option>Islandia</option><option>Italia</option><option>Letonia</option><option>Lituania</option><option>Luxemburgo</option><option>Malta</option><option>Noruega</option><option>Países Bajos</option><option>Polonia</option><option>Portugal</option><option>Reino Unido</option><option>República Checa</option><option>Rumania</option><option>Suecia</option><option>Suiza</option><option>Turquía</option><option>Ucrania</option>
+          </optgroup>
+          <option value="Varios países / ruta personalizada">Varios países / ruta personalizada</option>
+          <option value="Otro destino / consulta personalizada">Otro destino / consulta personalizada</option></select></div></div>
         <div class="field"><label for="quickTripType">Tipo de viaje</label><div class="field-control"><select id="quickTripType" name="tripType"><option value="Ida y vuelta" selected>Ida y vuelta</option><option value="Solo ida">Solo ida</option></select></div></div>
         <div class="field"><label for="quickDeparture">Fecha de salida</label><div class="field-control"><input id="quickDeparture" name="departureDate" type="date" /></div></div>
         <div class="field" id="quickReturnField"><label for="quickReturn">Fecha de regreso</label><div class="field-control"><input id="quickReturn" name="returnDate" type="date" /></div></div>
@@ -343,7 +351,15 @@
             <div class="field"><label for="name">Tu nombre</label><div class="field-control"><input id="name" name="name" placeholder="¿Cómo te llamas?" required /></div></div>
             <div class="field"><label for="email">Correo electrónico</label><div class="field-control"><input id="email" name="email" type="email" placeholder="tunombre@correo.com" required /></div></div>
             <div class="field"><label for="origin">Ciudad y país de salida</label><div class="field-control"><input id="origin" name="origin" placeholder="Ej. Miami, Estados Unidos" required /></div></div>
-            <div class="field"><label for="destination">Destino de interés</label><div class="field-control"><input id="destination" name="destination" placeholder="Ej. Perú, Italia o ruta por Europa" required /></div></div>
+            <div class="field"><label for="destination">País de destino</label><div class="field-control"><select id="destination" name="destination" required><option value="" selected disabled>Selecciona un país</option>
+          <optgroup label="Sudamérica">
+            <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option><option>Ecuador</option><option>Guyana</option><option>Paraguay</option><option>Perú</option><option>Surinam</option><option>Uruguay</option><option>Venezuela</option>
+          </optgroup>
+          <optgroup label="Europa">
+            <option>Alemania</option><option>Austria</option><option>Bélgica</option><option>Bulgaria</option><option>Chipre</option><option>Croacia</option><option>Dinamarca</option><option>Eslovaquia</option><option>Eslovenia</option><option>España</option><option>Estonia</option><option>Finlandia</option><option>Francia</option><option>Grecia</option><option>Hungría</option><option>Irlanda</option><option>Islandia</option><option>Italia</option><option>Letonia</option><option>Lituania</option><option>Luxemburgo</option><option>Malta</option><option>Noruega</option><option>Países Bajos</option><option>Polonia</option><option>Portugal</option><option>Reino Unido</option><option>República Checa</option><option>Rumania</option><option>Suecia</option><option>Suiza</option><option>Turquía</option><option>Ucrania</option>
+          </optgroup>
+          <option value="Varios países / ruta personalizada">Varios países / ruta personalizada</option>
+          <option value="Otro destino / consulta personalizada">Otro destino / consulta personalizada</option></select></div></div>
             <div class="field"><label for="tripType">Tipo de viaje</label><div class="field-control"><select id="tripType" name="tripType"><option value="Ida y vuelta" selected>Ida y vuelta</option><option value="Solo ida">Solo ida</option></select></div></div>
             <div class="field"><label for="departureDate">Fecha de salida</label><div class="field-control"><input id="departureDate" name="departureDate" type="date" /></div></div>
             <div class="field trip-return-field" id="quoteReturnField"><label for="returnDate">Fecha de regreso</label><div class="field-control"><input id="returnDate" name="returnDate" type="date" /></div></div>
@@ -412,11 +428,22 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
     document.querySelectorAll('[data-destination]').forEach(card => card.addEventListener('click', () => {
-      document.getElementById('destination').value = card.dataset.destination;
+      setQuoteDestination(card.dataset.destination);
     }));
+    function setQuoteDestination(value) {
+      const field = document.getElementById('destination');
+      const available = Array.from(field.options).some(option => option.value === value);
+      if (available) {
+        field.value = value;
+      } else {
+        const country = ['Perú', 'Colombia', 'Argentina', 'España', 'Italia', 'Francia', 'Suiza'].find(name => value.startsWith(name));
+        field.value = country || 'Varios países / ruta personalizada';
+      }
+    }
     document.querySelectorAll('[data-package]').forEach(card => card.addEventListener('click', () => {
-      document.getElementById('destination').value = card.dataset.package;
-      document.getElementById('details').value = 'Me interesa esta ruta sugerida. Quisiera recibir una propuesta personalizada.';
+      const route = card.dataset.package;
+      setQuoteDestination(route);
+      document.getElementById('details').value = 'Me interesa esta ruta: ' + route + '. Quisiera recibir una propuesta personalizada.';
     }));
     document.getElementById('quickSearch').addEventListener('submit', event => {
       event.preventDefault();
