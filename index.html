@@ -380,7 +380,7 @@
       const returnField = document.getElementById(quick ? 'quickReturnField' : 'quoteReturnField');
       const isRoundTrip = type.value === 'Ida y vuelta';
       returnField.hidden = !isRoundTrip;
-      returning.required = isRoundTrip;
+      returning.required = false;
       if (!isRoundTrip) returning.value = '';
       returning.min = departure.value || '';
       if (returning.value && departure.value && returning.value < departure.value) returning.value = '';
