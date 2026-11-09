@@ -622,8 +622,8 @@
     const original = node.nodeValue;
     const trimmed = original.trim();
     if (translations[trimmed]) {
-      const leading = original.match(/^\\s*/)?.[0] || '';
-      const trailing = original.match(/\\s*$/)?.[0] || '';
+      const leading = original.match(/^\s*/)?.[0] || '';
+      const trailing = original.match(/\s*$/)?.[0] || '';
       node.nodeValue = leading + translations[trimmed] + trailing;
     }
   }
