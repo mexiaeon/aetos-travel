@@ -295,6 +295,54 @@
       html { scroll-behavior:auto; }
       *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
     }
+    /* Guided, simple quotation form */
+    .quote-wizard { display:block; background:#fff; border:1px solid var(--line); border-radius:20px; padding:26px; box-shadow:0 14px 40px rgba(20,44,53,.07); }
+    .wizard-top { margin-bottom:26px; }
+    .wizard-indicators { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:14px; }
+    .wizard-indicator { display:flex; align-items:center; gap:9px; color:#89979b; font-size:11px; font-weight:700; }
+    .wizard-indicator > span { width:29px; height:29px; border:1px solid #d9e1df; border-radius:50%; display:grid; place-items:center; background:#fff; color:#718187; flex:none; font-size:11px; }
+    .wizard-indicator small { font-size:11px; }
+    .wizard-indicator.is-active { color:var(--teal-dark); }
+    .wizard-indicator.is-active > span { color:#fff; background:var(--teal); border-color:var(--teal); box-shadow:0 0 0 4px rgba(11,129,127,.10); }
+    .wizard-indicator.is-complete > span { color:#fff; background:#6d9f8d; border-color:#6d9f8d; }
+    .wizard-progress-track { width:100%; height:5px; background:#e9efec; border-radius:999px; overflow:hidden; }
+    .wizard-progress-track > span { display:block; height:100%; width:33.333%; background:var(--teal); border-radius:999px; transition:width .25s ease; }
+    .wizard-heading { margin-top:23px; }
+    .wizard-step-count { margin:0 0 8px; font-size:10px; letter-spacing:.14em; font-weight:800; color:var(--teal); }
+    .wizard-heading h3 { font-size:24px; letter-spacing:-.035em; margin:0 0 7px; }
+    .wizard-heading > p:last-child { color:var(--muted); font-size:13px; line-height:1.6; margin:0; }
+    .wizard-panel[hidden] { display:none !important; }
+    .wizard-fields { display:grid; grid-template-columns:1fr 1fr; gap:18px 16px; }
+    .wizard-field-wide { grid-column:1/-1; }
+    .wizard-fields .field label { color:#536970; letter-spacing:.01em; text-transform:none; font-size:12px; font-weight:700; margin-bottom:8px; }
+    .optional-label { display:inline-block; margin-left:5px; color:#8b999c; font-size:10px; font-weight:500; }
+    .wizard-fields .field-control { min-height:47px; border:1px solid #dce5e2; border-radius:11px; padding:0 13px; background:#fff; transition:border-color .2s ease, box-shadow .2s ease; }
+    .wizard-fields .field-control:focus-within { border-color:var(--teal); box-shadow:0 0 0 3px rgba(11,129,127,.09); }
+    .wizard-fields .field input,.wizard-fields .field select { min-height:43px; font-size:14px; color:var(--ink); }
+    .wizard-fields .field input::placeholder,.wizard-fields .field textarea::placeholder { color:#9ba8aa; }
+    .wizard-fields .textarea-control { align-items:stretch; padding:12px 13px; }
+    .wizard-fields .textarea-control textarea { width:100%; min-height:100px; resize:vertical; border:0; outline:0; background:transparent; color:var(--ink); font:14px/1.6 'DM Sans',sans-serif; }
+    .wizard-tip { display:flex; align-items:flex-start; gap:8px; margin:19px 0 0; padding:12px 14px; border-radius:11px; background:#f2f7f4; color:#5f7673; font-size:11px; line-height:1.6; }
+    .wizard-tip::before { content:'✓'; color:var(--teal); font-weight:800; }
+    .wizard-actions { display:flex; align-items:center; gap:12px; margin-top:25px; }
+    .wizard-actions .btn { min-height:48px; padding-left:24px; padding-right:24px; }
+    .wizard-actions .btn-light { background:#f1f5f3; color:var(--ink); border:1px solid #e0e8e4; }
+    .wizard-actions .btn-light:hover { background:#e5eee9; }
+    .wizard-required-note { color:#89979b; font-size:10px; line-height:1.5; margin-right:auto; }
+    .wizard-privacy { color:#89979b; font-size:10px; line-height:1.6; margin:14px 0 0; }
+    .quote-wizard .form-message { margin-top:18px; }
+    @media (max-width:650px) {
+      .quote-wizard { padding:20px 16px; border-radius:16px; }
+      .wizard-indicators { gap:5px; }
+      .wizard-indicator { gap:6px; font-size:10px; }
+      .wizard-indicator > span { width:27px; height:27px; }
+      .wizard-fields { grid-template-columns:1fr; gap:16px; }
+      .wizard-field-wide { grid-column:1; }
+      .wizard-heading h3 { font-size:21px; }
+      .wizard-actions { flex-wrap:wrap; }
+      .wizard-required-note { width:100%; order:3; }
+      .wizard-actions .btn { flex:1; }
+    }
   </style>
 </head>
 <body>
@@ -455,32 +503,68 @@
     <section class="section" id="cotizar">
       <div class="container"><div class="cta-band"><div><h2>Tu próxima gran historia comienza aquí.</h2><p>Cuéntanos qué experiencia tienes en mente. Diseñaremos una propuesta pensada alrededor de ti.</p></div><a class="btn" href="#formulario">Solicitar cotización <span aria-hidden="true">↗</span></a></div>
         <div style="max-width:700px;margin:58px auto 0" id="formulario"><div class="section-kicker">PLANEA CON AETOS TRAVEL</div><h2 style="font-size:34px">Diseñemos tu próxima experiencia.</h2><p class="section-desc" style="margin:12px 0 25px">Comparte algunos detalles y prepara el inicio de un viaje extraordinario. Recibiremos tu solicitud en aetostravel@gmail.com.</p>
-          <form id="quoteForm" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-            <div class="field"><label for="name">Tu nombre</label><div class="field-control"><input id="name" name="name" placeholder="¿Cómo te llamas?" required /></div></div>
-            <div class="field"><label for="email">Correo electrónico</label><div class="field-control"><input id="email" name="email" type="email" placeholder="tunombre@correo.com" required /></div></div>
-            <div class="field"><label for="origin">Ciudad y país de salida</label><div class="field-control"><input id="origin" name="origin" placeholder="Ej. Miami, Estados Unidos" required /></div></div>
-            <div class="field"><label for="destination">País de destino</label><div class="field-control"><select id="destination" name="destination" required><option value="" selected disabled>Selecciona un país</option>
-          <optgroup label="Sudamérica">
-            <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option><option>Ecuador</option><option>Guyana</option><option>Paraguay</option><option>Perú</option><option>Surinam</option><option>Uruguay</option><option>Venezuela</option>
-          </optgroup>
-          <optgroup label="Europa">
-            <option>Alemania</option><option>Austria</option><option>Bélgica</option><option>Bulgaria</option><option>Chipre</option><option>Croacia</option><option>Dinamarca</option><option>Eslovaquia</option><option>Eslovenia</option><option>España</option><option>Estonia</option><option>Finlandia</option><option>Francia</option><option>Grecia</option><option>Hungría</option><option>Irlanda</option><option>Islandia</option><option>Italia</option><option>Letonia</option><option>Lituania</option><option>Luxemburgo</option><option>Malta</option><option>Noruega</option><option>Países Bajos</option><option>Polonia</option><option>Portugal</option><option>Reino Unido</option><option>República Checa</option><option>Rumania</option><option>Suecia</option><option>Suiza</option><option>Turquía</option><option>Ucrania</option>
-          </optgroup>
-          <option value="Varios países / ruta personalizada">Varios países / ruta personalizada</option>
-          <option value="Otro destino / consulta personalizada">Otro destino / consulta personalizada</option></select></div></div>
-            <div class="field"><label for="tripType">Tipo de viaje / Trip type</label><div class="field-control"><select id="tripType" name="tripType"><option value="Ida y vuelta" selected>Round trip · Ida y vuelta</option><option value="Solo ida">One way · Solo ida</option></select></div></div>
-            <div class="field"><label for="departureDate">Fecha de salida</label><div class="field-control"><input id="departureDate" name="departureDate" type="date" /></div></div>
-            <div class="field trip-return-field" id="quoteReturnField"><label for="returnDate">Fecha de regreso</label><div class="field-control"><input id="returnDate" name="returnDate" type="date" /></div></div>
-            <div class="field"><label for="adults">Adultos</label><div class="field-control"><select id="adults" name="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7 o más</option></select></div></div>
-            <div class="field"><label for="children">Niños (menores de 18)</label><div class="field-control"><select id="children" name="children"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5 o más</option></select></div></div>
-            <div class="field"><label for="hotelCategory">Tipo de hospedaje preferido</label><div class="field-control"><select id="hotelCategory" name="hotelCategory"><option>Por recomendar</option><option>3 estrellas / cómodo</option><option>4 estrellas / superior</option><option>5 estrellas / lujo</option><option>Hotel boutique</option><option>Departamento o alojamiento privado</option></select></div></div>
-            <div class="field"><label for="dateFlexibility">Flexibilidad de fechas</label><div class="field-control"><select id="dateFlexibility" name="dateFlexibility"><option>Fechas exactas</option><option>Flexible por algunos días</option><option>Flexible por semanas</option><option>Aún no tengo fechas</option></select></div></div>
-            <div class="field"><label for="budget">Presupuesto aproximado</label><div class="field-control"><select id="budget" name="budget"><option value="Por definir">Aún no lo sé</option><option>Menos de 1,000</option><option>1,000–2,500</option><option>2,500–5,000</option><option>Más de 5,000</option></select></div></div>
-            <div class="field"><label for="currency">Moneda del presupuesto</label><div class="field-control"><select id="currency" name="currency"><option>USD - Dólar estadounidense</option><option>EUR - Euro</option><option>MXN - Peso mexicano</option><option>Otra / por definir</option></select></div></div>
-            <div class="field"><label for="language">Idioma de atención</label><div class="field-control"><select id="language" name="language"><option>Español</option><option>English</option></select></div></div>
-            <div class="field" style="grid-column:1/-1"><label for="interests">¿Qué experiencias te interesan?</label><div class="field-control"><select id="interests" name="interests"><option>Una combinación de experiencias</option><option>Aventura y naturaleza</option><option>Cultura, historia y gastronomía</option><option>Playas y descanso</option><option>Compras y vida urbana</option><option>Lujo y experiencias privadas</option><option>Viaje familiar</option><option>Luna de miel o escapada romántica</option></select></div></div>
-            <div class="field" style="grid-column:1/-1"><label for="details">¿Cómo imaginas tu viaje?</label><div class="field-control" style="border:1px solid var(--line);border-radius:13px;padding:12px"><textarea id="details" name="details" rows="3" placeholder="Fechas, número de viajeros, tipo de hotel, tours y actividades que te interesan..." style="width:100%;border:0;outline:0;resize:vertical;color:var(--ink);background:transparent;font:13px 'DM Sans',sans-serif"></textarea></div></div>
-            <div style="grid-column:1/-1"><button class="btn" type="submit">Enviar solicitud de viaje <span aria-hidden="true">→</span></button><div class="form-message" id="formMessage" role="status"></div><p style="font-size:10px;color:#89969a;line-height:1.6;margin:13px 0 0">Al enviar, se abrirá tu aplicación de correo con la solicitud preparada. Esta página no almacena tus datos.</p></div>
+          <form id="quoteForm" class="quote-wizard" novalidate>
+            <div class="wizard-top">
+              <div class="wizard-indicators" aria-label="Progreso de solicitud">
+                <div class="wizard-indicator is-active" data-step-indicator="1"><span>1</span><small>Viaje</small></div>
+                <div class="wizard-indicator" data-step-indicator="2"><span>2</span><small>Viajeros</small></div>
+                <div class="wizard-indicator" data-step-indicator="3"><span>3</span><small>Contacto</small></div>
+              </div>
+              <div class="wizard-progress-track" role="progressbar" aria-label="Progreso de cotización" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" id="quoteProgress"><span id="quoteProgressBar"></span></div>
+              <div class="wizard-heading">
+                <p class="wizard-step-count" id="quoteStepCount">PASO 1 DE 3</p>
+                <h3 id="quoteStepTitle">Primero, tu viaje</h3>
+                <p id="quoteStepDescription">Elige el destino y dinos desde dónde sales.</p>
+              </div>
+            </div>
+
+            <section class="wizard-panel" data-step-panel="1" aria-labelledby="quoteStepTitle">
+              <div class="wizard-fields">
+                <div class="field"><label for="destination">¿A dónde quieres ir?</label><div class="field-control"><select id="destination" name="destination" required><option value="" selected disabled>Selecciona un país</option>
+                  <optgroup label="Sudamérica">
+                    <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option><option>Ecuador</option><option>Guyana</option><option>Paraguay</option><option>Perú</option><option>Surinam</option><option>Uruguay</option><option>Venezuela</option>
+                  </optgroup>
+                  <optgroup label="Europa">
+                    <option>Alemania</option><option>Austria</option><option>Bélgica</option><option>Bulgaria</option><option>Chipre</option><option>Croacia</option><option>Dinamarca</option><option>Eslovaquia</option><option>Eslovenia</option><option>España</option><option>Estonia</option><option>Finlandia</option><option>Francia</option><option>Grecia</option><option>Hungría</option><option>Irlanda</option><option>Islandia</option><option>Italia</option><option>Letonia</option><option>Lituania</option><option>Luxemburgo</option><option>Malta</option><option>Noruega</option><option>Países Bajos</option><option>Polonia</option><option>Portugal</option><option>Reino Unido</option><option>República Checa</option><option>Rumania</option><option>Suecia</option><option>Suiza</option><option>Turquía</option><option>Ucrania</option>
+                  </optgroup>
+                  <option value="Varios países / ruta personalizada">Varios países / ruta personalizada</option>
+                  <option value="Otro destino / consulta personalizada">Otro destino / consulta personalizada</option></select></div></div>
+                <div class="field"><label for="origin">¿Desde dónde sales?</label><div class="field-control"><input id="origin" name="origin" placeholder="Ej. Monterrey, México" autocomplete="address-level2" required /></div></div>
+                <div class="field"><label for="tripType">Tipo de viaje</label><div class="field-control"><select id="tripType" name="tripType"><option value="Ida y vuelta" selected>Ida y vuelta</option><option value="Solo ida">Solo ida</option></select></div></div>
+                <div class="field"><label for="departureDate">¿Cuándo quieres salir? <span class="optional-label">Opcional</span></label><div class="field-control"><input id="departureDate" name="departureDate" type="date" /></div></div>
+                <div class="field trip-return-field" id="quoteReturnField"><label for="returnDate">¿Cuándo quieres regresar? <span class="optional-label">Opcional</span></label><div class="field-control"><input id="returnDate" name="returnDate" type="date" /></div></div>
+              </div>
+              <p class="wizard-tip">¿Todavía no tienes fechas? No pasa nada, puedes dejarlas en blanco.</p>
+            </section>
+
+            <section class="wizard-panel" data-step-panel="2" hidden>
+              <div class="wizard-fields">
+                <div class="field"><label for="adults">¿Cuántos adultos viajan?</label><div class="field-control"><select id="adults" name="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7 o más</option></select></div></div>
+                <div class="field"><label for="children">¿Cuántos niños viajan?</label><div class="field-control"><select id="children" name="children"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5 o más</option></select></div></div>
+                <div class="field"><label for="budget">Presupuesto aproximado</label><div class="field-control"><select id="budget" name="budget"><option value="Por definir" selected>Todavía no lo sé</option><option>Menos de 1,000</option><option>1,000–2,500</option><option>2,500–5,000</option><option>Más de 5,000</option></select></div></div>
+                <div class="field"><label for="currency">Moneda</label><div class="field-control"><select id="currency" name="currency"><option>USD - Dólar estadounidense</option><option>MXN - Peso mexicano</option><option>EUR - Euro</option><option>Otra / por definir</option></select></div></div>
+                <div class="field wizard-field-wide"><label for="interests">¿Qué tipo de viaje te gustaría?</label><div class="field-control"><select id="interests" name="interests"><option>Una combinación de experiencias</option><option>Aventura y naturaleza</option><option>Cultura, historia y gastronomía</option><option>Playas y descanso</option><option>Compras y vida urbana</option><option>Lujo y experiencias privadas</option><option>Viaje familiar</option><option>Luna de miel o escapada romántica</option></select></div></div>
+              </div>
+              <p class="wizard-tip">No necesitas tener todo decidido. Podemos ayudarte a elegir.</p>
+            </section>
+
+            <section class="wizard-panel" data-step-panel="3" hidden>
+              <div class="wizard-fields">
+                <div class="field"><label for="name">¿Cómo te llamas?</label><div class="field-control"><input id="name" name="name" placeholder="Tu nombre" autocomplete="name" required /></div></div>
+                <div class="field"><label for="email">¿A qué correo te contactamos?</label><div class="field-control"><input id="email" name="email" type="email" placeholder="tunombre@correo.com" autocomplete="email" required /></div></div>
+                <div class="field wizard-field-wide"><label for="details">¿Algo más que debamos saber? <span class="optional-label">Opcional</span></label><div class="field-control textarea-control"><textarea id="details" name="details" rows="4" placeholder="Cuéntanos qué te gustaría hacer o cualquier detalle importante..."></textarea></div></div>
+              </div>
+              <p class="wizard-tip">Solo usaremos estos datos para preparar y responder tu solicitud.</p>
+            </section>
+
+            <div class="wizard-actions">
+              <button class="btn btn-light" id="quoteBack" type="button" hidden>← Volver</button>
+              <span class="wizard-required-note" id="wizardRequiredNote">Solo necesitas completar los campos marcados.</span>
+              <button class="btn" id="quoteNext" type="button">Continuar →</button>
+              <button class="btn" id="quoteSubmit" type="submit" hidden>Enviar solicitud →</button>
+            </div>
+            <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+            <p class="wizard-privacy">Al enviar, se abrirá tu aplicación de correo con la solicitud preparada. Esta página no almacena tus datos.</p>
           </form>
         </div>
       </div>
@@ -559,6 +643,49 @@
       setQuoteDestination(route);
       document.getElementById('details').value = (IS_ENGLISH ? 'I am interested in this itinerary: ' : 'Me interesa esta ruta: ') + route + (IS_ENGLISH ? '. Please send me a personalized proposal.' : '. Quisiera recibir una propuesta personalizada.');
     }));
+    const quoteForm = document.getElementById('quoteForm');
+    let currentQuoteStep = 1;
+    const quoteStepText = [
+      { title: IS_ENGLISH ? 'First, your trip' : 'Primero, tu viaje', description: IS_ENGLISH ? 'Choose your destination and tell us where you are leaving from.' : 'Elige el destino y dinos desde dónde sales.' },
+      { title: IS_ENGLISH ? 'Who is traveling?' : '¿Quiénes viajan?', description: IS_ENGLISH ? 'A few details help us shape the right options for your group.' : 'Unos pocos detalles nos ayudan a preparar opciones para tu grupo.' },
+      { title: IS_ENGLISH ? 'How can we reach you?' : '¿Cómo te contactamos?', description: IS_ENGLISH ? 'Leave your contact details and we will prepare your request.' : 'Déjanos tus datos y prepararemos tu solicitud.' }
+    ];
+    function showQuoteStep(step) {
+      currentQuoteStep = Math.max(1, Math.min(3, step));
+      quoteForm.querySelectorAll('[data-step-panel]').forEach(panel => {
+        panel.hidden = Number(panel.dataset.stepPanel) !== currentQuoteStep;
+      });
+      quoteForm.querySelectorAll('[data-step-indicator]').forEach(indicator => {
+        const n = Number(indicator.dataset.stepIndicator);
+        indicator.classList.toggle('is-active', n === currentQuoteStep);
+        indicator.classList.toggle('is-complete', n < currentQuoteStep);
+        if (n === currentQuoteStep) indicator.setAttribute('aria-current', 'step');
+        else indicator.removeAttribute('aria-current');
+      });
+      document.getElementById('quoteStepCount').textContent = IS_ENGLISH ? 'STEP ' + currentQuoteStep + ' OF 3' : 'PASO ' + currentQuoteStep + ' DE 3';
+      document.getElementById('quoteStepTitle').textContent = quoteStepText[currentQuoteStep - 1].title;
+      document.getElementById('quoteStepDescription').textContent = quoteStepText[currentQuoteStep - 1].description;
+      document.getElementById('quoteProgressBar').style.width = (currentQuoteStep / 3 * 100) + '%';
+      document.getElementById('quoteProgress').setAttribute('aria-valuenow', String(currentQuoteStep));
+      document.getElementById('quoteBack').hidden = currentQuoteStep === 1;
+      document.getElementById('quoteNext').hidden = currentQuoteStep === 3;
+      document.getElementById('quoteSubmit').hidden = currentQuoteStep !== 3;
+    }
+    function validateQuoteStep(step) {
+      const panel = quoteForm.querySelector('[data-step-panel="' + step + '"]');
+      const field = Array.from(panel.querySelectorAll('input,select,textarea')).find(control => !control.checkValidity());
+      if (!field) return true;
+      field.reportValidity();
+      field.focus();
+      return false;
+    }
+    document.getElementById('quoteNext').addEventListener('click', () => {
+      if (!validateQuoteStep(currentQuoteStep)) return;
+      showQuoteStep(currentQuoteStep + 1);
+    });
+    document.getElementById('quoteBack').addEventListener('click', () => showQuoteStep(currentQuoteStep - 1));
+    showQuoteStep(1);
+
     document.getElementById('quickSearch').addEventListener('submit', event => {
       event.preventDefault();
       document.getElementById('destination').value = document.getElementById('quickDestination').value;
@@ -570,11 +697,20 @@
       const quickAdults = quickPeople === '5 o más' ? '5' : (parseInt(quickPeople, 10) || 2);
       document.getElementById('adults').value = String(quickAdults);
       document.getElementById('children').value = '0';
-      document.getElementById('details').value = (IS_ENGLISH ? 'Started from quick search. Travelers: ' : 'Solicitud iniciada desde búsqueda rápida. Viajeros: ') + quickPeople + '.';
+      document.getElementById('details').value = '';
+      showQuoteStep(1);
       document.getElementById('cotizar').scrollIntoView({ behavior: 'smooth' });
     });
     document.getElementById('quoteForm').addEventListener('submit', event => {
       event.preventDefault();
+      const invalid = Array.from(quoteForm.querySelectorAll('[required]')).find(control => !control.checkValidity());
+      if (invalid) {
+        const panel = invalid.closest('[data-step-panel]');
+        if (panel) showQuoteStep(Number(panel.dataset.stepPanel));
+        invalid.focus();
+        invalid.reportValidity();
+        return;
+      }
       const form = event.currentTarget;
       const data = new FormData(form);
       const message = [
@@ -589,11 +725,9 @@
         (IS_ENGLISH ? 'Return date: ' : 'Fecha de regreso: ') + (data.get('tripType') === 'Ida y vuelta' ? (data.get('returnDate') || (IS_ENGLISH ? 'To be decided' : 'Por definir')) : (IS_ENGLISH ? 'Not applicable · one way' : 'No aplica · solo ida')),
         (IS_ENGLISH ? 'Adults: ' : 'Adultos: ') + data.get('adults'),
         (IS_ENGLISH ? 'Children: ' : 'Niños: ') + data.get('children'),
-        (IS_ENGLISH ? 'Preferred accommodation: ' : 'Hospedaje preferido: ') + data.get('hotelCategory'),
-        (IS_ENGLISH ? 'Date flexibility: ' : 'Flexibilidad de fechas: ') + data.get('dateFlexibility'),
-        (IS_ENGLISH ? 'Interests: ' : 'Experiencias de interés: ') + data.get('interests'),
-        (IS_ENGLISH ? 'Budget: ' : 'Presupuesto: ') + data.get('budget') + ' ' + data.get('currency'),
-        (IS_ENGLISH ? 'Preferred language: ' : 'Idioma de atención: ') + data.get('language'),
+        (IS_ENGLISH ? 'Budget: ' : 'Presupuesto: ') + (data.get('budget') === 'Por definir' ? (IS_ENGLISH ? 'Not decided yet' : 'Por definir') : data.get('budget')) + ' ' + data.get('currency'),
+        (IS_ENGLISH ? 'Travel style: ' : 'Tipo de viaje: ') + data.get('interests'),
+        (IS_ENGLISH ? 'Preferred language: ' : 'Idioma de atención: ') + (IS_ENGLISH ? 'English' : 'Español'),
         (IS_ENGLISH ? 'Details: ' : 'Detalles: ') + (data.get('details') || (IS_ENGLISH ? 'To be decided' : 'Por definir'))
       ].join('\n');
       const notice = document.getElementById('formMessage');
