@@ -1,0 +1,20 @@
+AETOS TRAVEL — ARCHIVOS DEL SITIO WEB
+
+CONTENIDO
+- index.html: página principal del sitio.
+- assets/aetos-logo.webp: logotipo oficial.
+- assets/aetos-cover.webp: portada panorámica oficial.
+
+CÓMO SUBIRLO A GITHUB
+1. Descomprime este ZIP en tu computadora.
+2. Abre el repositorio de AETOS TRAVEL en GitHub.
+3. En la página principal del repositorio, selecciona Add file > Upload files.
+4. Arrastra index.html y la carpeta assets (con las dos imágenes dentro) al área de carga.
+5. Espera a que aparezcan los tres archivos: index.html, assets/aetos-logo.webp y assets/aetos-cover.webp.
+6. Escribe un mensaje como "Subir sitio web AETOS TRAVEL" y pulsa Commit changes.
+
+IMPORTANTE
+- index.html debe quedar en la raíz del repositorio, no dentro de una carpeta adicional.
+- La carpeta assets debe quedar junto a index.html.
+- El formulario prepara un correo a aetostravel@gmail.com; no confirma reservas ni disponibilidad.
+- Algunas fotografías de destinos usan imágenes externas de Unsplash y requieren conexión a internet.

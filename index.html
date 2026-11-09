@@ -1,56 +1,425 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AETOS TRAVEL: viajes exclusivos y experiencias inolvidables en Sudamérica y Europa. Diseñamos tu próximo viaje a medida.">
-<meta name="theme-color" content="#101b1a">
-<title>AETOS TRAVEL | Explora más allá. Viaja diferente.</title>
-<style>
-:root{--ink:#14211f;--deep:#101b1a;--cream:#f5f2eb;--gold:#c9a96e;--muted:#68716b;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
-header{position:absolute;z-index:5;top:0;left:0;width:100%;color:#fff;border-bottom:1px solid #ffffff28}.nav{height:82px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:1.25rem;letter-spacing:.23em;font-weight:750}.brand span{display:block;font-size:.55rem;letter-spacing:.36em;color:#dfc796;font-weight:500;margin-top:-4px}.links{display:flex;gap:30px;font-size:.88rem;color:#f1eee7}.links a:hover{color:#dfc796}.menu{display:none;background:none;border:1px solid #ffffff70;color:#fff;padding:8px 12px;border-radius:4px}
-.hero{min-height:710px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,rgba(9,22,21,.91),rgba(9,22,21,.62) 48%,rgba(9,22,21,.16)),linear-gradient(0deg,rgba(9,22,21,.42),transparent 50%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85') center/cover}.hero-content{padding-top:90px;max-width:720px}.eyebrow{color:#dfc796;text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;font-weight:700}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(3.2rem,7vw,6.4rem);line-height:.99;letter-spacing:-.045em;margin:22px 0}.hero p{max-width:540px;color:#e4e5df;font-size:1.08rem;margin:24px 0 34px}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#17211e;padding:14px 23px;font-size:.82rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--gold);transition:.2s}.btn:hover{background:#e0c58f;transform:translateY(-2px)}.btn-outline{background:transparent;color:#fff;border-color:#ffffff9c;margin-left:10px}.btn-outline:hover{color:var(--ink);background:#fff}
-.intro{padding:100px 0 76px;text-align:center}.intro h2,.section-head h2{font:400 clamp(2.2rem,4vw,3.5rem)/1.1 Georgia,serif;margin:14px 0}.intro p{max-width:690px;margin:18px auto 0;color:var(--muted)}.section{padding:72px 0 100px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px}.section-head p{max-width:390px;color:var(--muted);margin:0 0 6px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.trip{background:#fff;box-shadow:0 12px 36px #17211e0c;overflow:hidden}.trip-art{height:245px;position:relative;background-size:cover;background-position:center}.trip-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#08151280,transparent 65%)}.trip-art span{position:absolute;z-index:1;bottom:17px;left:20px;color:#fff;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}.trip-body{padding:23px 24px 25px}.trip h3{font:400 1.65rem Georgia,serif;margin:0 0 8px}.trip p{font-size:.91rem;color:var(--muted);margin:0 0 18px;min-height:48px}.trip-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e9e6df;padding-top:15px;font-size:.78rem}.trip-foot strong{color:#8b7044;letter-spacing:.04em}.trip-foot a{font-weight:700}.peru{background-image:url('https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=900&q=80')}.italy{background-image:url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80')}.europe{background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80')}.patagonia{background-image:url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=900&q=80')}.swiss{background-image:url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=80')}.colombia{background-image:url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80')}
-.band{background:var(--deep);color:#fff;padding:76px 0}.band-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}.band h2{font:400 clamp(2rem,4vw,3.4rem)/1.1 Georgia,serif;margin:8px 0}.band p{color:#c4cbc4;max-width:570px;margin:12px 0 0}.steps{padding:90px 0}.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:40px}.step-num{font:italic 2rem Georgia,serif;color:#b18d54;border-bottom:1px solid #d9d1c2;padding-bottom:13px}.steps h3{font:400 1.35rem Georgia,serif;margin:18px 0 8px}.steps p{color:var(--muted);font-size:.92rem;margin:0}
-footer{background:#0c1514;color:#fff;padding:55px 0 25px}.footer-top{display:flex;justify-content:space-between;gap:30px;padding-bottom:38px}.footer-brand p{color:#aeb8b0;max-width:360px;font-size:.9rem}.footer-contact{color:#d7c092}.copyright{border-top:1px solid #ffffff24;padding-top:20px;color:#89948c;font-size:.75rem;display:flex;justify-content:space-between;gap:15px}
-@media(max-width:800px){.links{display:none;position:absolute;top:81px;left:0;width:100%;background:#101b1a;padding:20px 24px;flex-direction:column;gap:16px}.links.open{display:flex}.menu{display:block}.hero{min-height:650px}.cards{grid-template-columns:repeat(2,1fr)}.section-head,.band-inner{align-items:flex-start;flex-direction:column}.steps-grid{gap:22px}}
-@media(max-width:560px){.wrap{width:min(100% - 32px,1160px)}.hero{min-height:630px;background-position:58% center}.hero h1{font-size:3.5rem}.btn-outline{margin:10px 0 0}.cards,.steps-grid{grid-template-columns:1fr}.trip-art{height:225px}.intro{padding:75px 0 45px}.section{padding:55px 0 70px}.band{padding:60px 0}.footer-top,.copyright{flex-direction:column}.footer-top{gap:12px}}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AETOS TRAVEL diseña viajes internacionales personalizados y experiencias exclusivas de aventura, naturaleza y cultura en Sudamérica y Europa." />
+  <meta name="theme-color" content="#102b35" />
+  <title>AETOS TRAVEL | Lujo moderno y aventura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #102b35;
+      --muted: #667a80;
+      --teal: #0b817f;
+      --teal-dark: #075e60;
+      --mint: #e5eee9;
+      --sand: #f5f3ed;
+      --white: #fff;
+      --line: rgba(20,44,53,.12);
+      --shadow: 0 22px 60px rgba(20,44,53,.12);
+      --radius: 22px;
+      --accent: #d5ad70;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: #fff; font-family: 'DM Sans', sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 44px)); margin: 0 auto; }
+    .topline { background: #102b35; color: rgba(255,255,255,.86); font-size: 12px; letter-spacing: .04em; }
+    .topline-inner { display:flex; justify-content:space-between; align-items:center; min-height:34px; gap:16px; }
+    .topline span { display:flex; align-items:center; gap:8px; }
+    .topline-dot { width:6px; height:6px; background:#8ed0b8; border-radius:50%; display:inline-block; }
+    header { position: sticky; top:0; z-index:20; background:rgba(255,255,255,.94); backdrop-filter: blur(16px); border-bottom:1px solid rgba(20,44,53,.07); }
+    .nav { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:11px; font-family:Manrope,sans-serif; font-weight:800; letter-spacing:.08em; font-size:17px; }
+    .brand-mark { width:38px; height:38px; border-radius:13px; display:grid; place-items:center; color:#fff; background:var(--teal); box-shadow:0 7px 18px rgba(23,107,104,.22); }
+    .brand small { display:block; font:600 9px 'DM Sans',sans-serif; letter-spacing:.25em; color:#829196; margin-top:2px; }
+    .nav-links { display:flex; align-items:center; gap:30px; color:#536970; font-size:13px; font-weight:600; }
+    .nav-links a:hover { color:var(--teal); }
+    .btn { border:0; border-radius:999px; padding:13px 21px; background:var(--teal); color:white; display:inline-flex; align-items:center; justify-content:center; gap:9px; font-size:13px; font-weight:700; cursor:pointer; transition:.2s ease; box-shadow:0 9px 20px rgba(23,107,104,.17); }
+    .btn:hover { background:var(--teal-dark); transform:translateY(-2px); }
+    .btn-light { background:#fff; color:var(--ink); box-shadow:none; }
+    .btn-light:hover { background:#eaf4ef; color:var(--teal-dark); }
+    .menu-toggle { display:none; border:1px solid var(--line); background:#fff; border-radius:12px; width:42px; height:42px; color:var(--ink); cursor:pointer; }
 
-/* Refinamiento visual y formulario de cotización */
-.trustbar{background:#fff;border-bottom:1px solid #e8e3d9}.trustgrid{display:grid;grid-template-columns:repeat(3,1fr);padding:22px 0;gap:18px}.trustitem{display:flex;align-items:center;justify-content:center;gap:12px;text-align:left}.trusticon{width:38px;height:38px;border:1px solid #d9c69f;border-radius:50%;display:grid;place-items:center;color:#987644;font-size:1.05rem}.trustitem strong{display:block;font:400 1rem Georgia,serif}.trustitem small{display:block;color:#7b817b;font-size:.72rem}.why{background:#ebe7de;padding:82px 0}.whygrid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.whyphoto{min-height:420px;background:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1100&q=85') center/cover}.whycopy h2{font:400 clamp(2.2rem,4vw,3.5rem)/1.1 Georgia,serif;margin:14px 0}.whycopy p{color:#68716b}.whylist{display:grid;gap:17px;margin-top:26px}.whylist div{border-top:1px solid #d4cec2;padding-top:13px}.whylist b{font:400 1.08rem Georgia,serif}.quote{padding:88px 0;background:#f9f7f2}.quotegrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}.quote h2{font:400 clamp(2.2rem,4vw,3.5rem)/1.1 Georgia,serif;margin:12px 0}.quote-copy p{color:var(--muted)}.quoteform{background:#fff;padding:30px;box-shadow:0 15px 45px #17211e0c}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:.75rem;font-weight:700;letter-spacing:.04em}.field input,.field select,.field textarea{width:100%;font:inherit;padding:12px 13px;border:1px solid #dedbd3;background:#fcfbf8;color:var(--ink);border-radius:0}.field textarea{min-height:92px;resize:vertical}.quoteform .btn{width:100%;margin-top:20px;cursor:pointer}.formnote{font-size:.72rem;color:#858980;margin:12px 0 0}.trip-foot a{color:#80643a}.trip{transition:transform .25s,box-shadow .25s}.trip:hover{transform:translateY(-5px);box-shadow:0 18px 42px #17211e16}
-@media(max-width:760px){.trustgrid{grid-template-columns:1fr;gap:14px}.trustitem{justify-content:flex-start}.whygrid,.quotegrid{grid-template-columns:1fr;gap:30px}.whyphoto{min-height:300px}.quoteform{padding:22px}}
-@media(max-width:440px){.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+    .hero { min-height:630px; position:relative; color:#fff; display:flex; align-items:center; overflow:hidden; background:#25454b; }
+    .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,31,38,.76) 0%,rgba(10,31,38,.46) 48%,rgba(10,31,38,.10) 100%), url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2200&q=88') center 52%/cover no-repeat; transform:scale(1.01); }
+    .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(9,31,37,.35),transparent 48%); }
+    .hero-content { position:relative; z-index:1; padding:76px 0 150px; max-width:720px; }
+    .eyebrow { display:inline-flex; gap:9px; align-items:center; text-transform:uppercase; letter-spacing:.2em; font-size:10px; font-weight:700; color:#e6c99b; margin-bottom:22px; }
+    .eyebrow::before { content:""; width:27px; height:1px; background:#d5ad70; }
+    h1,h2,h3 { font-family:Manrope,sans-serif; }
+    h1 { font-size:clamp(42px,6vw,72px); line-height:1.04; letter-spacing:-.055em; margin:0 0 21px; max-width:700px; }
+    h1 em { font-style:normal; color:#e6c99b; }
+    .hero-copy { font-size:16px; line-height:1.8; color:rgba(255,255,255,.84); max-width:490px; margin:0 0 30px; }
+    .hero-actions { display:flex; align-items:center; gap:13px; flex-wrap:wrap; }
+    .hero-note { display:flex; align-items:center; gap:9px; margin-top:30px; color:rgba(255,255,255,.78); font-size:12px; }
+    .hero-note strong { color:#fff; }
+    .search-wrap { position:relative; z-index:3; margin-top:-69px; }
+    .search-panel { background:#fff; border-radius:20px; box-shadow:var(--shadow); padding:22px 25px; display:grid; grid-template-columns:1.3fr 1fr .8fr auto; gap:14px; align-items:end; }
+    .field label { display:block; color:#819096; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 9px 2px; }
+    .field-control { display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding:0 2px 11px; }
+    .field-control svg { color:var(--teal); flex:none; }
+    .field input,.field select { width:100%; border:0; outline:0; color:var(--ink); background:transparent; font-size:14px; min-width:0; }
+    .field input::placeholder { color:#a4afb2; }
+    .search-panel .btn { min-height:48px; white-space:nowrap; }
+    .section { padding:104px 0; }
+    .section-soft { background:var(--sand); }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:38px; }
+    .section-kicker { color:var(--teal); font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.2em; margin-bottom:13px; }
+    h2 { margin:0; font-size:clamp(30px,4vw,44px); letter-spacing:-.045em; line-height:1.13; }
+    .section-desc { color:var(--muted); line-height:1.75; font-size:14px; max-width:410px; margin:0; }
+    .region-heading { display:flex; align-items:center; gap:15px; margin:34px 0 18px; }
+    .region-heading > span { font:800 11px Manrope,sans-serif; color:var(--teal); border:1px solid rgba(23,107,104,.28); border-radius:50%; width:34px; height:34px; display:grid; place-items:center; flex:none; }
+    .region-heading h3 { margin:0 0 4px; font-size:19px; letter-spacing:-.03em; }
+    .region-heading p { margin:0; color:var(--muted); font-size:12px; }
+    .region-europe { margin-top:52px; }
+    .dest-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+    .destination { min-height:365px; border-radius:var(--radius); overflow:hidden; position:relative; color:white; isolation:isolate; background:#456; }
+    .destination img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s ease; z-index:-2; }
+    .destination:hover img { transform:scale(1.06); }
+    .destination::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,rgba(7,27,33,.78),rgba(7,27,33,0) 72%); }
+    .destination-content { position:absolute; inset:auto 23px 23px; }
+    .destination-tag { display:inline-block; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 10px; font-size:9px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; backdrop-filter:blur(5px); }
+    .destination h3 { font-size:25px; margin:0 0 7px; letter-spacing:-.03em; }
+    .destination p { color:rgba(255,255,255,.8); font-size:12px; margin:0; }
+    .arrow-circle { position:absolute; right:20px; bottom:25px; width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.62); display:grid; place-items:center; font-size:17px; }
 
+    .package-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; margin-top:35px; }
+    .package-card { background:#fff; border:1px solid rgba(20,44,53,.09); border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(20,44,53,.045); transition:transform .25s ease, box-shadow .25s ease; }
+    .package-card:hover { transform:translateY(-5px); box-shadow:0 18px 42px rgba(20,44,53,.11); }
+    .package-image { height:205px; position:relative; overflow:hidden; background:#dce6e1; }
+    .package-image img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+    .package-card:hover .package-image img { transform:scale(1.05); }
+    .package-label { position:absolute; top:15px; left:15px; background:rgba(12,39,46,.78); color:#fff; border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:7px 11px; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; backdrop-filter:blur(8px); }
+    .package-body { padding:22px; }
+    .package-meta { display:flex; align-items:center; gap:8px; color:var(--teal); font-size:10px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+    .package-body h3 { font-size:21px; letter-spacing:-.035em; margin:10px 0 8px; }
+    .package-body > p { color:var(--muted); font-size:12px; line-height:1.7; margin:0 0 15px; min-height:42px; }
+    .package-highlights { display:grid; gap:8px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .package-highlights span { color:#536970; font-size:11px; line-height:1.45; }
+    .package-highlights span::before { content:'✓'; color:var(--teal); font-weight:800; margin-right:8px; }
+    .package-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:17px; }
+    .package-duration { color:#839196; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; }
+    .package-link { color:var(--teal); font-size:12px; font-weight:800; }
+    .package-note { color:var(--muted); font-size:11px; line-height:1.7; margin-top:22px; }
+    .why-grid { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:80px; }
+    .why-visual { min-height:490px; position:relative; }
+    .why-main { position:absolute; inset:0 65px 38px 0; overflow:hidden; border-radius:24px; }
+    .why-main img { width:100%; height:100%; object-fit:cover; }
+    .why-card { position:absolute; right:0; bottom:0; width:215px; background:#fff; padding:21px; border-radius:18px; box-shadow:var(--shadow); }
+    .why-card strong { display:block; font:800 29px Manrope,sans-serif; color:var(--teal); letter-spacing:-.05em; }
+    .why-card span { color:var(--muted); font-size:11px; line-height:1.5; }
+    .feature-list { display:grid; gap:22px; margin-top:31px; }
+    .feature { display:grid; grid-template-columns:42px 1fr; gap:15px; align-items:start; }
+    .feature-icon { width:42px; height:42px; border-radius:13px; background:var(--mint); color:var(--teal); display:grid; place-items:center; }
+    .feature h3 { font-size:15px; margin:1px 0 6px; }
+    .feature p { color:var(--muted); font-size:12px; line-height:1.7; margin:0; }
+    .trip-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:36px; }
+    .trip-type { background:#fff; padding:25px 20px; border:1px solid rgba(20,44,53,.08); border-radius:18px; transition:.2s ease; }
+    .trip-type:hover { transform:translateY(-4px); box-shadow:0 15px 35px rgba(20,44,53,.08); }
+    .trip-emoji { font-size:23px; display:block; margin-bottom:17px; }
+    .trip-type h3 { font-size:15px; margin:0 0 7px; }
+    .trip-type p { color:var(--muted); font-size:11px; line-height:1.65; margin:0; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:43px; }
+    .step { border-top:1px solid var(--line); padding-top:21px; }
+    .step-number { color:var(--teal); font:800 12px Manrope,sans-serif; letter-spacing:.15em; }
+    .step h3 { margin:16px 0 8px; font-size:18px; }
+    .step p { color:var(--muted); font-size:13px; line-height:1.75; margin:0; max-width:290px; }
+    .cta-band { background:#12353c; border-radius:25px; padding:48px 54px; color:#fff; display:flex; justify-content:space-between; align-items:center; gap:30px; position:relative; overflow:hidden; }
+    .cta-band::after { content:""; position:absolute; width:300px; height:300px; border:1px solid rgba(180,225,208,.17); border-radius:50%; right:19%; top:-180px; box-shadow:0 0 0 35px rgba(180,225,208,.035),0 0 0 70px rgba(180,225,208,.025); }
+    .cta-band h2 { font-size:clamp(27px,3vw,38px); max-width:540px; position:relative; z-index:1; }
+    .cta-band p { color:rgba(255,255,255,.68); font-size:13px; margin:12px 0 0; position:relative; z-index:1; }
+    .cta-band .btn { background:#e6c99b; color:#12353c; box-shadow:none; position:relative; z-index:1; }
+    footer { background:#0d252d; color:#fff; padding:55px 0 25px; }
+    .footer-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1.1fr; gap:35px; padding-bottom:42px; }
+    footer .brand { color:#fff; }
+    .footer-about { color:rgba(255,255,255,.6); font-size:12px; line-height:1.8; max-width:255px; margin:17px 0 0; }
+    .footer-col h4 { font:700 11px 'DM Sans',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#e6c99b; margin:5px 0 18px; }
+    .footer-col a,.footer-col p { display:block; color:rgba(255,255,255,.65); font-size:12px; margin:0 0 12px; }
+    .footer-col a:hover { color:#fff; }
+    .copyright { border-top:1px solid rgba(255,255,255,.12); padding-top:20px; display:flex; justify-content:space-between; gap:16px; color:rgba(255,255,255,.43); font-size:10px; }
+    .notice { margin-top:13px; color:rgba(255,255,255,.45); font-size:10px; line-height:1.6; }
+    .form-message { display:none; margin:15px 0 0; padding:12px 15px; background:#e7f3ed; color:#14584e; border-radius:12px; font-size:12px; line-height:1.5; }
+    .form-message.show { display:block; }
+    @media (max-width: 900px) {
+      .nav-links { gap:17px; }
+      .search-panel { grid-template-columns:1fr 1fr; }
+      .search-panel .btn { width:100%; }
+      .dest-grid { grid-template-columns:1fr 1fr; }
+      .destination:first-child { grid-column:span 2; min-height:330px; }
+      .why-grid { gap:42px; }
+      .trip-grid { grid-template-columns:1fr 1fr; }
+      .footer-grid { grid-template-columns:1.3fr 1fr 1fr; }
+      .footer-grid .footer-col:last-child { grid-column:2 / 4; }
+    }
+    @media (max-width: 650px) {
+      .container { width:min(100% - 32px, 520px); }
+      .topline-inner { justify-content:center; min-height:32px; }
+      .topline-inner span:last-child { display:none; }
+      .nav { min-height:68px; }
+      .menu-toggle { display:grid; place-items:center; }
+      .nav-links { display:none; position:absolute; top:68px; left:0; right:0; padding:18px 22px 22px; background:#fff; border-bottom:1px solid var(--line); flex-direction:column; align-items:stretch; gap:18px; }
+      .nav-links.open { display:flex; }
+      .nav-links .btn { width:100%; }
+      .hero { min-height:650px; align-items:flex-start; }
+      .hero::before { background:linear-gradient(90deg,rgba(10,31,38,.73),rgba(10,31,38,.28)),url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=85') 58% center/cover no-repeat; }
+      .hero-content { padding:75px 0 130px; }
+      h1 { font-size:clamp(42px,12vw,59px); }
+      .hero-copy { font-size:14px; }
+      .search-wrap { margin-top:-88px; }
+      .search-panel { grid-template-columns:1fr; padding:21px; gap:17px; }
+      .search-panel .btn { margin-top:2px; }
+      .section { padding:75px 0; }
+      .section-head { display:block; margin-bottom:27px; }
+      .section-desc { margin-top:15px; }
+      .dest-grid { grid-template-columns:1fr; }
+      .package-grid { grid-template-columns:1fr 1fr; }
+      .region-europe { margin-top:38px; }
+      .destination,.destination:first-child { grid-column:auto; min-height:330px; }
+      .why-grid { grid-template-columns:1fr; gap:36px; }
+      .why-visual { min-height:390px; }
+      .why-main { inset:0 38px 30px 0; }
+      .why-card { width:180px; padding:17px; }
+      .trip-grid { gap:10px; }
+      .trip-type { padding:19px 15px; }
+      .steps { grid-template-columns:1fr; gap:25px; }
+      .cta-band { padding:34px 25px; display:block; }
+      .cta-band .btn { margin-top:23px; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:27px 20px; }
+      .footer-grid > div:first-child { grid-column:span 2; }
+      .footer-grid .footer-col:last-child { grid-column:auto; }
+      .copyright { display:block; line-height:1.8; }
+    }
+  
+    /* Identidad visual oficial AETOS TRAVEL */
+    .brand.logo-brand { display:flex; align-items:center; gap:0; }
+    .brand.logo-brand img { display:block; width:74px; height:74px; object-fit:contain; }
+    .footer-grid .brand.logo-brand img { width:100px; height:100px; }
+    .hero { min-height:0; display:block; color:inherit; background:#f4f3ee; overflow:hidden; }
+    .hero::before, .hero::after { display:none; }
+    .hero-cover { width:100%; height:auto; display:block; }
+    .hero-content { display:none; }
+    .hero-after { background:#12353c; color:#fff; display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap; padding:19px 22px; text-align:left; }
+    .hero-after strong { font:700 15px Manrope,sans-serif; }
+    .hero-after span { color:rgba(255,255,255,.78); font-size:13px; }
+    .hero-after .btn { background:#e6c99b; color:#12353c; box-shadow:none; }
+    .search-wrap { margin-top:-38px; }
+    @media(max-width:700px) {
+      .brand.logo-brand img { width:62px; height:62px; }
+      .hero-after { gap:12px; padding:17px 15px; text-align:center; }
+      .hero-after div { display:grid; gap:2px; }
+      .search-wrap { margin-top:-20px; }
+    }
 
-/* Logotipo oficial AETOS TRAVEL */
-.brand{display:flex;align-items:center;letter-spacing:0}
-.brand-logo{display:block;width:70px;height:70px;object-fit:contain;background:#fff;border-radius:4px;padding:3px}
-.footer-brand .brand-logo{width:104px;height:104px}
-@media(max-width:560px){.brand-logo{width:62px;height:62px}}
-
-</style>
+  </style>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#inicio" aria-label="AETOS TRAVEL"><img class="brand-logo" src="assets/aetos-logo.jpg" alt="AETOS TRAVEL"></a><nav class="links" id="navlinks"><a href="#experiencias">Experiencias</a><a href="#nosotros">Cómo funciona</a><a href="#cotizar">Cotizar</a><a href="#contacto">Contacto</a></nav><button class="menu" id="menu" aria-label="Abrir menú">Menú</button></div></header>
-<main>
-<section class="hero" id="inicio"><div class="wrap hero-content"><div class="eyebrow">Viajes diseñados para descubrir</div><h1>El mundo<br>te espera.</h1><p>Experiencias extraordinarias en Sudamérica y Europa. Creamos viajes a tu medida para que cada destino se convierta en una historia inolvidable.</p><a class="btn" href="#experiencias">Descubre los viajes</a><a class="btn btn-outline" href="#contacto">Diseña tu viaje</a></div></section>
-<section class="trustbar"><div class="wrap trustgrid"><div class="trustitem"><span class="trusticon">✧</span><div><strong>Viajes a tu medida</strong><small>Diseñados alrededor de ti</small></div></div><div class="trustitem"><span class="trusticon">⌖</span><div><strong>Destinos extraordinarios</strong><small>Sudamérica y Europa</small></div></div><div class="trustitem"><span class="trusticon">♡</span><div><strong>Atención personalizada</strong><small>De la idea a tu itinerario</small></div></div></div></section>
-<section class="intro" id="nosotros"><div class="wrap"><div class="eyebrow">AETOS TRAVEL · Viaja diferente</div><h2>Más que un destino,<br>una experiencia.</h2><p>Creemos que viajar es descubrir el mundo a tu propio ritmo. Por eso diseñamos propuestas personalizables que combinan lugares extraordinarios, alojamientos con carácter y experiencias memorables.</p></div></section>
-<section class="section" id="experiencias"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Inspiración para tu próximo viaje</div><h2>Experiencias destacadas</h2></div><p>Seis rutas cuidadosamente seleccionadas. Cada propuesta puede adaptarse a tus fechas, estilo y preferencias.</p></div>
-<div class="cards">
-<article class="trip"><div class="trip-art peru"><span>Perú · 8 días sugeridos</span></div><div class="trip-body"><h3>Aventura en los Andes</h3><p>Cusco, Valle Sagrado y Machu Picchu entre paisajes imponentes y cultura ancestral.</p><div class="trip-foot"><strong>Sudamérica</strong><a href="mailto:aetostravel@gmail.com?subject=Consulta%20-%20Aventura%20en%20los%20Andes">Solicitar propuesta ↗</a></div></div></article>
-<article class="trip"><div class="trip-art italy"><span>Italia · 10 días sugeridos</span></div><div class="trip-body"><h3>Ruta mediterránea</h3><p>Roma, Florencia y la Costa Amalfitana: arte, gastronomía y paisajes costeros.</p><div class="trip-foot"><strong>Europa</strong><a href="mailto:aetostravel@gmail.com?subject=Consulta%20-%20Ruta%20mediterranea">Solicitar propuesta ↗</a></div></div></article>
-<article class="trip"><div class="trip-art europe"><span>Europa · 9 días sugeridos</span></div><div class="trip-body"><h3>Europa clásica</h3><p>París, Barcelona y Madrid en un recorrido lleno de arquitectura, cultura y sabor.</p><div class="trip-foot"><strong>Europa</strong><a href="mailto:aetostravel@gmail.com?subject=Consulta%20-%20Europa%20clasica">Solicitar propuesta ↗</a></div></div></article>
-<article class="trip"><div class="trip-art patagonia"><span>Argentina y Chile · 10 días</span></div><div class="trip-body"><h3>Espíritu Patagonia</h3><p>Glaciares, montañas y naturaleza salvaje en uno de los rincones más espectaculares del planeta.</p><div class="trip-foot"><strong>Sudamérica</strong><a href="mailto:aetostravel@gmail.com?subject=Consulta%20-%20Patagonia">Solicitar propuesta ↗</a></div></div></article>
-<article class="trip"><div class="trip-art swiss"><span>Suiza · 8 días sugeridos</span></div><div class="trip-body"><h3>Alpes suizos</h3><p>Zúrich, Lucerna e Interlaken: lagos cristalinos, pueblos alpinos y panoramas de montaña.</p><div class="trip-foot"><strong>Europa</strong><a href="mailto:aetostravel@gmail.com?subject=Consulta%20-%20Alpes%20suizos">Solicitar propuesta ↗</a></div></div></article>
-<article class="trip"><div class="trip-art colombia"><span>Colombia · 8 días sugeridos</span></div><div class="trip-body"><h3>Colombia extraordinaria</h3><p>Cartagena y Medellín con cultura vibrante, gastronomía y escapadas tropicales.</p><div class="trip-foot"><strong>Sudamérica</strong><a href="mailto:aetostravel@gmail.com?subject=Consulta%20-%20Colombia">Solicitar propuesta ↗</a></div></div></article>
-</div></div></section>
-<section class="why"><div class="wrap whygrid"><div class="whyphoto" role="img" aria-label="Paisaje de montaña y lago"></div><div class="whycopy"><div class="eyebrow">La diferencia AETOS</div><h2>Viajar bien empieza con escuchar.</h2><p>No creemos en itinerarios genéricos. Cada viajero tiene su propio ritmo, intereses y manera de descubrir el mundo.</p><div class="whylist"><div><b>Rutas pensadas con intención</b><br><small>Experiencias seleccionadas para aprovechar cada destino.</small></div><div><b>Flexibilidad para personalizar</b><br><small>Fechas, duración y actividades según tus preferencias.</small></div><div><b>Claridad antes de confirmar</b><br><small>Recibes una propuesta y cotización para revisar antes de reservar.</small></div></div></div></div></section>
-<section class="band"><div class="wrap band-inner"><div><div class="eyebrow">Tu viaje, a tu manera</div><h2>El siguiente capítulo<br>empieza aquí.</h2><p>Cuéntanos qué tienes en mente. Prepararemos una propuesta personalizada con opciones de vuelos, alojamiento, traslados y actividades.</p></div><a class="btn" href="#cotizar">Solicitar cotización</a></div></section>
-<section class="quote" id="cotizar"><div class="wrap quotegrid"><div class="quote-copy"><div class="eyebrow">Empecemos a planear</div><h2>Cuéntanos cómo imaginas tu viaje.</h2><p>Comparte algunos detalles y prepararemos una propuesta inicial. No necesitas tener todo decidido: podemos ayudarte a darle forma a la idea.</p><p><strong>Correo:</strong> <a href="mailto:aetostravel@gmail.com">aetostravel@gmail.com</a></p></div><form class="quoteform" id="quoteform"><div class="formgrid"><div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required placeholder="Tu nombre"></div><div class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="tu@correo.com"></div><div class="field"><label for="destino">Destino de interés</label><select id="destino" name="destino" required><option value="">Selecciona una opción</option><option>Perú</option><option>Italia</option><option>Europa clásica</option><option>Patagonia</option><option>Suiza</option><option>Colombia</option><option>Otro / Por definir</option></select></div><div class="field"><label for="viajeros">Número de viajeros</label><select id="viajeros" name="viajeros"><option>1 viajero</option><option selected>2 viajeros</option><option>3–4 viajeros</option><option>5 o más</option></select></div><div class="field"><label for="fecha">Fecha aproximada</label><input id="fecha" name="fecha" placeholder="Ej. Octubre 2026"></div><div class="field"><label for="duracion">Duración aproximada</label><select id="duracion" name="duracion"><option>Por definir</option><option>1 semana</option><option>10–14 días</option><option>Más de 2 semanas</option></select></div><div class="field full"><label for="mensaje">¿Qué te gustaría vivir en este viaje?</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tus intereses, preferencias o cualquier detalle importante..."></textarea></div></div><button class="btn" type="submit">Enviar solicitud de cotización ↗</button><p class="formnote">Al enviar, se abrirá tu aplicación de correo con los detalles. La solicitud no confirma una reserva ni disponibilidad.</p></form></div></section>
-<section class="steps"><div class="wrap"><div class="eyebrow">Simple. Personal. Extraordinario.</div><h2 style="font:400 clamp(2.2rem,4vw,3.4rem) Georgia,serif;margin:12px 0">Así comienza tu viaje</h2><div class="steps-grid"><div><div class="step-num">01</div><h3>Cuéntanos tu idea</h3><p>Comparte el destino, fechas aproximadas, número de viajeros y el tipo de experiencia que buscas.</p></div><div><div class="step-num">02</div><h3>Diseñamos tu propuesta</h3><p>Preparamos una ruta a medida con alternativas de vuelos, hoteles, traslados y actividades.</p></div><div><div class="step-num">03</div><h3>Prepárate para explorar</h3><p>Revisas la propuesta, resolvemos tus dudas y ajustamos los detalles antes de confirmar.</p></div></div></div></section>
-</main>
-<footer id="contacto"><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#inicio" aria-label="AETOS TRAVEL"><img class="brand-logo" src="assets/aetos-logo.jpg" alt="AETOS TRAVEL"></a><p>Explora más allá. Viaja diferente. Experiencias de viaje personalizadas en Sudamérica y Europa.</p></div><div><div class="eyebrow">Hablemos de tu próximo viaje</div><p><a class="footer-contact" href="mailto:aetostravel@gmail.com">aetostravel@gmail.com</a></p><p style="color:#aeb8b0;font-size:.85rem">Atención por correo electrónico</p></div></div><div class="copyright"><span>© 2026 AETOS TRAVEL. Todos los derechos reservados.</span><span>Propuestas personalizables · Cotización previa · Sujeto a disponibilidad</span></div></div></footer>
-<script>const menu=document.getElementById('menu'),links=document.getElementById('navlinks');menu.addEventListener('click',()=>links.classList.toggle('open'));links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));document.getElementById('quoteform').addEventListener('submit',function(e){e.preventDefault();const d=new FormData(this);const body=[...d.entries()].map(([k,v])=>k+': '+v).join('\\n');window.location.href='mailto:aetostravel@gmail.com?subject='+encodeURIComponent('Solicitud de cotización AETOS TRAVEL')+'&body='+encodeURIComponent(body);});</script>
-</body></html>
+  <div class="topline"><div class="container topline-inner"><span><i class="topline-dot"></i> Viajes extraordinarios · Sudamérica y Europa</span><span>Diseñados a tu medida · Atención internacional</span></div></div>
+  <header>
+    <div class="container nav">
+      <a class="brand logo-brand" href="#inicio" aria-label="AETOS TRAVEL, inicio"><img src="assets/aetos-logo.webp" alt="Logotipo oficial de AETOS TRAVEL"></a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a><a href="#experiencias">Experiencias</a><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo funciona</a>
+        <a class="btn" href="#cotizar">Cotiza tu viaje <span aria-hidden="true">↗</span></a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-label="Portada AETOS TRAVEL">
+      <img class="hero-cover" src="assets/aetos-cover.webp" alt="AETOS TRAVEL: explora, descubre y pertenece. El mundo te espera.">
+      <div class="hero-after"><div><strong>Tu próxima aventura comienza aquí.</strong><span> Viajes a medida por Sudamérica y Europa.</span></div><a class="btn" href="#cotizar">Solicita tu cotización ↗</a></div>
+    </section>
+
+    <div class="container search-wrap">
+      <form class="search-panel" id="quickSearch">
+        <div class="field"><label for="quickDestination">¿A dónde quieres ir?</label><div class="field-control"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="quickDestination" name="destination" placeholder="Ej. Perú, Italia, Colombia" /></div></div>
+        <div class="field"><label for="quickDate">Fecha aproximada</label><div class="field-control"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><input id="quickDate" name="date" type="month" /></div></div>
+        <div class="field"><label for="quickPeople">Viajeros</label><div class="field-control"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.3-3.4 2.6-5.5 6.5-5.5s6.2 2.1 6.5 5.5M16 5.5a3.5 3.5 0 0 1 0 6.8M17 15c2.8.5 4.3 2.2 4.5 5"/></svg><select id="quickPeople" name="people"><option>1 viajero</option><option selected>2 viajeros</option><option>3 viajeros</option><option>4 viajeros</option><option>5 o más</option></select></div></div>
+        <button class="btn" type="submit">Buscar viaje <span aria-hidden="true">→</span></button>
+      </form>
+    </div>
+
+    <section class="section" id="destinos">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">DESTINOS PARA DESCUBRIR</div><h2>Dos continentes.<br>Infinitas posibilidades.</h2></div><p class="section-desc">De paisajes remotos a ciudades llenas de historia: diseñamos itinerarios que combinan comodidad, autenticidad y aventura.</p></div>
+        <div class="region-heading"><span>01</span><div><h3>Sudamérica</h3><p>Color, naturaleza y culturas que dejan huella.</p></div></div>
+        <div class="dest-grid">
+          <a class="destination" href="#cotizar" data-destination="Perú"><img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1000&q=85" alt="Paisaje de Machu Picchu en Perú" loading="lazy"><div class="destination-content"><span class="destination-tag">Historia y naturaleza</span><h3>Perú</h3><p>Cusco, Machu Picchu y los Andes.</p></div><span class="arrow-circle">↗</span></a>
+          <a class="destination" href="#cotizar" data-destination="Colombia"><img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=900&q=85" alt="Arquitectura colorida y ambiente urbano latinoamericano" loading="lazy"><div class="destination-content"><span class="destination-tag">Color y cultura</span><h3>Colombia</h3><p>Cartagena, Medellín y paisajes cafeteros.</p></div><span class="arrow-circle">↗</span></a>
+          <a class="destination" href="#cotizar" data-destination="Argentina"><img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=900&q=85" alt="Paisaje urbano de Buenos Aires, Argentina" loading="lazy"><div class="destination-content"><span class="destination-tag">Ciudad y aventura</span><h3>Argentina</h3><p>Buenos Aires, Patagonia y Mendoza.</p></div><span class="arrow-circle">↗</span></a>
+        </div>
+        <div class="region-heading region-europe"><span>02</span><div><h3>Europa</h3><p>Ciudades icónicas, arte, gastronomía y paisajes inolvidables.</p></div></div>
+        <div class="dest-grid">
+          <a class="destination" href="#cotizar" data-destination="España"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1000&q=85" alt="Arquitectura emblemática de Barcelona, España" loading="lazy"><div class="destination-content"><span class="destination-tag">Cultura mediterránea</span><h3>España</h3><p>Madrid, Barcelona y Andalucía.</p></div><span class="arrow-circle">↗</span></a>
+          <a class="destination" href="#cotizar" data-destination="Italia"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85" alt="Pueblo costero de Italia" loading="lazy"><div class="destination-content"><span class="destination-tag">Arte y gastronomía</span><h3>Italia</h3><p>Roma, Florencia y la costa italiana.</p></div><span class="arrow-circle">↗</span></a>
+          <a class="destination" href="#cotizar" data-destination="Francia"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=85" alt="Vista de París, Francia" loading="lazy"><div class="destination-content"><span class="destination-tag">Romance y encanto</span><h3>Francia</h3><p>París, la Riviera y pueblos franceses.</p></div><span class="arrow-circle">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section section-soft" id="paquetes">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">COLECCIÓN AETOS · VIAJES A MEDIDA</div><h2>Seis formas de vivir<br>algo extraordinario.</h2></div><p class="section-desc">Inspírate con nuestras rutas sugeridas. Personalizamos cada viaje según tus fechas, ciudad de salida, estilo y preferencias.</p></div>
+        <div class="package-grid">
+          <article class="package-card">
+            <div class="package-image"><img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1000&q=85" alt="Machu Picchu y montañas de los Andes" loading="lazy"><span class="package-label">Sudamérica · Cultura y aventura</span></div>
+            <div class="package-body"><div class="package-meta">01 / Perú</div><h3>Aventura en los Andes</h3><p>Una ruta entre historia inca, paisajes andinos y alojamientos con encanto.</p><div class="package-highlights"><span>Lima, Valle Sagrado y Cusco</span><span>Experiencia en Machu Picchu</span><span>Guías locales y traslados coordinados</span></div><div class="package-footer"><span class="package-duration">9–11 días sugeridos</span><a class="package-link" href="#cotizar" data-package="Perú: Aventura en los Andes">Personalizar ↗</a></div></div>
+          </article>
+          <article class="package-card">
+            <div class="package-image"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=85" alt="Costa mediterránea italiana" loading="lazy"><span class="package-label">Europa · Arte y gastronomía</span></div>
+            <div class="package-body"><div class="package-meta">02 / Italia</div><h3>La ruta mediterránea</h3><p>Ciudades históricas, cocina regional y paisajes costeros en una escapada italiana.</p><div class="package-highlights"><span>Roma, Florencia y Costa Amalfitana</span><span>Estancias boutique seleccionadas</span><span>Experiencias gastronómicas opcionales</span></div><div class="package-footer"><span class="package-duration">10–12 días sugeridos</span><a class="package-link" href="#cotizar" data-package="Italia: La ruta mediterránea">Personalizar ↗</a></div></div>
+          </article>
+          <article class="package-card">
+            <div class="package-image"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1000&q=85" alt="París y sus avenidas" loading="lazy"><span class="package-label">Europa · Ciudades icónicas</span></div>
+            <div class="package-body"><div class="package-meta">03 / Francia y España</div><h3>Europa clásica</h3><p>Una combinación de arquitectura, cultura, gastronomía y barrios llenos de vida.</p><div class="package-highlights"><span>París, Barcelona y Madrid</span><span>Conexiones entre ciudades</span><span>Tiempo libre y visitas guiadas opcionales</span></div><div class="package-footer"><span class="package-duration">10–14 días sugeridos</span><a class="package-link" href="#cotizar" data-package="Europa clásica: París, Barcelona y Madrid">Personalizar ↗</a></div></div>
+          </article>
+          <article class="package-card">
+            <div class="package-image"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85" alt="Montañas y naturaleza de la Patagonia" loading="lazy"><span class="package-label">Sudamérica · Naturaleza</span></div>
+            <div class="package-body"><div class="package-meta">04 / Argentina y Chile</div><h3>Patagonia extraordinaria</h3><p>Montañas, glaciares y paisajes abiertos para quienes buscan naturaleza en grande.</p><div class="package-highlights"><span>El Calafate y Torres del Paine, según ruta</span><span>Refugios y hoteles seleccionados</span><span>Excursiones escénicas opcionales</span></div><div class="package-footer"><span class="package-duration">10–13 días sugeridos</span><a class="package-link" href="#cotizar" data-package="Patagonia extraordinaria: Argentina y Chile">Personalizar ↗</a></div></div>
+          </article>
+          <article class="package-card">
+            <div class="package-image"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85" alt="Paisaje alpino suizo" loading="lazy"><span class="package-label">Europa · Montaña y bienestar</span></div>
+            <div class="package-body"><div class="package-meta">05 / Suiza</div><h3>Alpes exclusivos</h3><p>Trenes panorámicos, pueblos alpinos y hoteles con vistas a las montañas.</p><div class="package-highlights"><span>Zúrich, Lucerna e Interlaken</span><span>Rutas panorámicas y teleféricos</span><span>Opciones de spa y experiencias privadas</span></div><div class="package-footer"><span class="package-duration">8–10 días sugeridos</span><a class="package-link" href="#cotizar" data-package="Suiza: Alpes exclusivos">Personalizar ↗</a></div></div>
+          </article>
+          <article class="package-card">
+            <div class="package-image"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1000&q=85" alt="Costa caribeña y mar turquesa" loading="lazy"><span class="package-label">Sudamérica · Lujo tropical</span></div>
+            <div class="package-body"><div class="package-meta">06 / Colombia</div><h3>Colombia entre mar y montaña</h3><p>Una experiencia que une patrimonio colonial, paisajes cafeteros y costa caribeña.</p><div class="package-highlights"><span>Cartagena, Medellín y región cafetera</span><span>Hoteles boutique y experiencias locales</span><span>Extensión de playa opcional</span></div><div class="package-footer"><span class="package-duration">8–11 días sugeridos</span><a class="package-link" href="#cotizar" data-package="Colombia: entre mar y montaña">Personalizar ↗</a></div></div></div>
+          </article>
+        </div>
+        <p class="package-note">Estas rutas son ejemplos inspiracionales, no paquetes con precio o disponibilidad confirmados. Cada itinerario, proveedor, transporte, alojamiento, actividad y condición se valida y cotiza individualmente antes de ofrecerse.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="nosotros">
+      <div class="container why-grid">
+        <div class="why-visual"><div class="why-main"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1100&q=85" alt="Lago alpino rodeado de montañas" loading="lazy"></div><div class="why-card"><strong>A tu ritmo.</strong><span>Un viaje pensado alrededor de tus gustos, fechas y presupuesto.</span></div></div>
+        <div><div class="section-kicker">TU VIAJE, BIEN PENSADO</div><h2>Una experiencia extraordinaria<br>empieza con un plan a tu medida.</h2><p class="section-desc" style="margin-top:17px">En AETOS TRAVEL creemos que el verdadero lujo está en vivir el viaje que imaginaste. Diseñamos cada itinerario alrededor de tus intereses, tu ritmo y la forma en que quieres descubrir el mundo.</p>
+          <div class="feature-list">
+            <div class="feature"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></div><div><h3>Itinerarios diseñados para ti</h3><p>Cada propuesta parte de tus intereses: desde una escapada privada hasta una ruta de varios destinos.</p></div></div>
+            <div class="feature"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Comodidad en cada etapa</h3><p>Integramos vuelos, alojamientos, traslados y actividades en una sola propuesta de viaje.</p></div></div>
+            <div class="feature"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h18M12 3l9 9-9 9"/></svg></div><div><h3>Aventura con intención</h3><p>Buscamos experiencias memorables, cultura local y momentos fuera de lo cotidiano.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiencias">
+      <div class="container"><div class="section-kicker">EXPERIENCIAS AETOS</div><h2>Viajes que se sienten<br>tan únicos como tú.</h2>
+        <div class="trip-grid">
+          <div class="trip-type"><span class="trip-emoji">⛰️</span><h3>Aventura extraordinaria</h3><p>Explora paisajes imponentes, rutas escénicas y naturaleza en destinos únicos.</p></div>
+          <div class="trip-type"><span class="trip-emoji">✦</span><h3>Estancias especiales</h3><p>Alójate en hoteles boutique, resorts y refugios con personalidad.</p></div>
+          <div class="trip-type"><span class="trip-emoji">🍷</span><h3>Cultura y gastronomía</h3><p>Conoce tradiciones, sabores y experiencias locales cuidadosamente elegidas.</p></div>
+          <div class="trip-type"><span class="trip-emoji">🧭</span><h3>Rutas privadas a medida</h3><p>Combina destinos, traslados y actividades en un itinerario personalizado.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="proceso">
+      <div class="container"><div class="section-kicker">Así de sencillo</div><h2>De la idea al destino.</h2><p class="section-desc" style="margin-top:15px">Un proceso cercano para que tengas claridad desde el primer mensaje.</p>
+        <div class="steps">
+          <div class="step"><span class="step-number">01 / CUÉNTANOS</span><h3>Comparte tu idea</h3><p>Dinos a dónde te gustaría ir, cuándo y qué tipo de experiencia buscas.</p></div>
+          <div class="step"><span class="step-number">02 / DISEÑAMOS</span><h3>Preparamos opciones</h3><p>Revisamos alternativas y armamos una propuesta alineada con tus prioridades.</p></div>
+          <div class="step"><span class="step-number">03 / DISFRUTA</span><h3>Alista las maletas</h3><p>Cuando elijas tu plan, te orientamos con los siguientes pasos de tu viaje.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cotizar">
+      <div class="container"><div class="cta-band"><div><h2>Tu próxima gran historia comienza aquí.</h2><p>Cuéntanos qué experiencia tienes en mente. Diseñaremos una propuesta pensada alrededor de ti.</p></div><a class="btn" href="#formulario">Solicitar cotización <span aria-hidden="true">↗</span></a></div>
+        <div style="max-width:700px;margin:58px auto 0" id="formulario"><div class="section-kicker">PLANEA CON AETOS TRAVEL</div><h2 style="font-size:34px">Diseñemos tu próxima experiencia.</h2><p class="section-desc" style="margin:12px 0 25px">Comparte algunos detalles y prepara el inicio de un viaje extraordinario. Recibiremos tu solicitud en aetostravel@gmail.com.</p>
+          <form id="quoteForm" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div class="field"><label for="name">Tu nombre</label><div class="field-control"><input id="name" name="name" placeholder="¿Cómo te llamas?" required /></div></div>
+            <div class="field"><label for="email">Correo electrónico</label><div class="field-control"><input id="email" name="email" type="email" placeholder="tunombre@correo.com" required /></div></div>
+            <div class="field"><label for="origin">Ciudad y país de salida</label><div class="field-control"><input id="origin" name="origin" placeholder="Ej. Miami, Estados Unidos" required /></div></div>
+            <div class="field"><label for="destination">Destino de interés</label><div class="field-control"><input id="destination" name="destination" placeholder="Ej. Perú, Italia o ruta por Europa" required /></div></div>
+            <div class="field"><label for="budget">Presupuesto aproximado</label><div class="field-control"><select id="budget" name="budget"><option value="Por definir">Aún no lo sé</option><option>Menos de 1,000</option><option>1,000–2,500</option><option>2,500–5,000</option><option>Más de 5,000</option></select></div></div>
+            <div class="field"><label for="currency">Moneda del presupuesto</label><div class="field-control"><select id="currency" name="currency"><option>USD - Dólar estadounidense</option><option>EUR - Euro</option><option>MXN - Peso mexicano</option><option>Otra / por definir</option></select></div></div>
+            <div class="field"><label for="language">Idioma de atención</label><div class="field-control"><select id="language" name="language"><option>Español</option><option>English</option></select></div></div>
+            <div class="field" style="grid-column:1/-1"><label for="details">¿Cómo imaginas tu viaje?</label><div class="field-control" style="border:1px solid var(--line);border-radius:13px;padding:12px"><textarea id="details" name="details" rows="3" placeholder="Fechas, número de viajeros, tipo de hotel, tours y actividades que te interesan..." style="width:100%;border:0;outline:0;resize:vertical;color:var(--ink);background:transparent;font:13px 'DM Sans',sans-serif"></textarea></div></div>
+            <div style="grid-column:1/-1"><button class="btn" type="submit">Enviar solicitud de viaje <span aria-hidden="true">→</span></button><div class="form-message" id="formMessage" role="status"></div><p style="font-size:10px;color:#89969a;line-height:1.6;margin:13px 0 0">Al enviar, se abrirá tu aplicación de correo con la solicitud preparada. Esta página no almacena tus datos.</p></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container"><div class="footer-grid">
+      <div><a class="brand logo-brand" href="#inicio" aria-label="AETOS TRAVEL, inicio"><img src="assets/aetos-logo.webp" alt="Logotipo oficial de AETOS TRAVEL"></a><p class="footer-about">AETOS TRAVEL crea viajes internacionales personalizados y experiencias exclusivas para descubrir Sudamérica y Europa con comodidad, curiosidad y espíritu aventurero.</p></div>
+      <div class="footer-col"><h4>Explora</h4><a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a><a href="#experiencias">Experiencias</a><a href="#nosotros">Nosotros</a></div>
+      <div class="footer-col"><h4>Planea</h4><a href="#proceso">Cómo funciona</a><a href="#cotizar">Solicitar cotización</a><a href="#inicio">Volver arriba ↑</a></div>
+      <div class="footer-col"><h4>Contacto</h4><p>Atención internacional</p><p>Atención por correo electrónico</p><p><a href="mailto:aetostravel@gmail.com">aetostravel@gmail.com</a></p></div>
+    </div><div class="copyright"><span>© <span id="year"></span> AETOS TRAVEL. Todos los derechos reservados.</span><span>Los destinos e imágenes son ilustrativos. Servicios y cotizaciones sujetos a disponibilidad y confirmación.</span></div><p class="notice">AETOS TRAVEL · aetostravel@gmail.com · Los servicios se confirman mediante cotización y disponibilidad.</p></div>
+  </footer>
+  <script>
+    // CONFIGURACIÓN: escribe el número de WhatsApp con código de país, solo dígitos.
+    // Ejemplo México: 5218112345678. No incluyas +, espacios ni guiones.
+    const WHATSAPP_NUMBER = ""; // Agrega el número internacional cuando esté disponible.
+    const CONTACT_EMAIL = "aetostravel@gmail.com";
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('[data-destination]').forEach(card => card.addEventListener('click', () => {
+      document.getElementById('destination').value = card.dataset.destination;
+    }));
+    document.querySelectorAll('[data-package]').forEach(card => card.addEventListener('click', () => {
+      document.getElementById('destination').value = card.dataset.package;
+      document.getElementById('details').value = 'Me interesa esta ruta sugerida. Quisiera recibir una propuesta personalizada.';
+    }));
+    document.getElementById('quickSearch').addEventListener('submit', event => {
+      event.preventDefault();
+      document.getElementById('destination').value = document.getElementById('quickDestination').value;
+      document.getElementById('details').value = [
+        document.getElementById('quickDate').value ? 'Fecha aproximada: ' + document.getElementById('quickDate').value : '',
+        'Viajeros: ' + document.getElementById('quickPeople').value
+      ].filter(Boolean).join('\n');
+      document.getElementById('cotizar').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('quoteForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const data = new FormData(form);
+      const message = [
+        'Hola, quiero solicitar una cotización de viaje.',
+        '',
+        'Nombre: ' + data.get('name'),
+        'Correo: ' + data.get('email'),
+        'Ciudad y país de salida: ' + data.get('origin'),
+        'Destino: ' + data.get('destination'),
+        'Presupuesto: ' + data.get('budget') + ' ' + data.get('currency'),
+        'Idioma de atención: ' + data.get('language'),
+        'Detalles: ' + (data.get('details') || 'Por definir')
+      ].join('\n');
+      const notice = document.getElementById('formMessage');
+      if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
+        const subject = 'Solicitud de viaje - AETOS TRAVEL';
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+        notice.textContent = 'Se preparó un correo para AETOS TRAVEL. Revisa tu aplicación de correo y envíalo para completar la solicitud.';
+        notice.classList.add('show');
+        return;
+      }
+      window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+      notice.textContent = 'Se abrió WhatsApp con tu solicitud preparada. Revísala y envíala para que la agencia pueda contactarte.';
+      notice.classList.add('show');
+    });
+  </script>
+</body>
+</html>
