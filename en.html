@@ -570,7 +570,7 @@
       const quickAdults = quickPeople === '5 o más' ? '5' : (parseInt(quickPeople, 10) || 2);
       document.getElementById('adults').value = String(quickAdults);
       document.getElementById('children').value = '0';
-      document.getElementById('details').value = (IS_ENGLISH ? 'Started from quick search. Travelers: ' : 'Solicitud iniciada desde búsqueda rápida. Viajeros: ') + quickPeople + '.'.
+      document.getElementById('details').value = (IS_ENGLISH ? 'Started from quick search. Travelers: ' : 'Solicitud iniciada desde búsqueda rápida. Viajeros: ') + quickPeople + '.';
       document.getElementById('cotizar').scrollIntoView({ behavior: 'smooth' });
     });
     document.getElementById('quoteForm').addEventListener('submit', event => {
