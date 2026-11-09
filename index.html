@@ -299,7 +299,7 @@
     .quote-wizard { display:block; background:#fff; border:1px solid var(--line); border-radius:20px; padding:26px; box-shadow:0 14px 40px rgba(20,44,53,.07); }
     .wizard-top { margin-bottom:26px; }
     .wizard-indicators { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:14px; }
-    .wizard-indicator { display:flex; align-items:center; gap:9px; color:#89979b; font-size:11px; font-weight:700; }
+    .required-star { color:#c16b43; font-weight:800; margin-left:3px; }\n    .wizard-indicator { display:flex; align-items:center; gap:9px; color:#89979b; font-size:11px; font-weight:700; }
     .wizard-indicator > span { width:29px; height:29px; border:1px solid #d9e1df; border-radius:50%; display:grid; place-items:center; background:#fff; color:#718187; flex:none; font-size:11px; }
     .wizard-indicator small { font-size:11px; }
     .wizard-indicator.is-active { color:var(--teal-dark); }
@@ -502,7 +502,7 @@
 
     <section class="section" id="cotizar">
       <div class="container"><div class="cta-band"><div><h2>Tu próxima gran historia comienza aquí.</h2><p>Cuéntanos qué experiencia tienes en mente. Diseñaremos una propuesta pensada alrededor de ti.</p></div><a class="btn" href="#formulario">Solicitar cotización <span aria-hidden="true">↗</span></a></div>
-        <div style="max-width:700px;margin:58px auto 0" id="formulario"><div class="section-kicker">PLANEA CON AETOS TRAVEL</div><h2 style="font-size:34px">Diseñemos tu próxima experiencia.</h2><p class="section-desc" style="margin:12px 0 25px">Comparte algunos detalles y prepara el inicio de un viaje extraordinario. Recibiremos tu solicitud en aetostravel@gmail.com.</p>
+        <div style="max-width:700px;margin:58px auto 0" id="formulario"><div class="section-kicker">PLANEA CON AETOS TRAVEL</div><h2 style="font-size:34px">Diseñemos tu próxima experiencia.</h2><p class="section-desc" style="margin:12px 0 25px">Cuéntanos lo básico en 3 pasos. No necesitas tener fechas ni presupuesto definidos.</p>
           <form id="quoteForm" class="quote-wizard" novalidate>
             <div class="wizard-top">
               <div class="wizard-indicators" aria-label="Progreso de solicitud">
@@ -520,7 +520,7 @@
 
             <section class="wizard-panel" data-step-panel="1" aria-labelledby="quoteStepTitle">
               <div class="wizard-fields">
-                <div class="field"><label for="destination">¿A dónde quieres ir?</label><div class="field-control"><select id="destination" name="destination" required><option value="" selected disabled>Selecciona un país</option>
+                <div class="field"><label for="destination">¿A dónde quieres ir? <span class="required-star" aria-hidden="true">*</span></label><div class="field-control"><select id="destination" name="destination" required><option value="" selected disabled>Selecciona un país</option>
                   <optgroup label="Sudamérica">
                     <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option><option>Ecuador</option><option>Guyana</option><option>Paraguay</option><option>Perú</option><option>Surinam</option><option>Uruguay</option><option>Venezuela</option>
                   </optgroup>
@@ -529,7 +529,7 @@
                   </optgroup>
                   <option value="Varios países / ruta personalizada">Varios países / ruta personalizada</option>
                   <option value="Otro destino / consulta personalizada">Otro destino / consulta personalizada</option></select></div></div>
-                <div class="field"><label for="origin">¿Desde dónde sales?</label><div class="field-control"><input id="origin" name="origin" placeholder="Ej. Monterrey, México" autocomplete="address-level2" required /></div></div>
+                <div class="field"><label for="origin">¿Desde dónde sales? <span class="required-star" aria-hidden="true">*</span></label><div class="field-control"><input id="origin" name="origin" placeholder="Ej. Monterrey, México" autocomplete="address-level2" required /></div></div>
                 <div class="field"><label for="tripType">Tipo de viaje</label><div class="field-control"><select id="tripType" name="tripType"><option value="Ida y vuelta" selected>Ida y vuelta</option><option value="Solo ida">Solo ida</option></select></div></div>
                 <div class="field"><label for="departureDate">¿Cuándo quieres salir? <span class="optional-label">Opcional</span></label><div class="field-control"><input id="departureDate" name="departureDate" type="date" /></div></div>
                 <div class="field trip-return-field" id="quoteReturnField"><label for="returnDate">¿Cuándo quieres regresar? <span class="optional-label">Opcional</span></label><div class="field-control"><input id="returnDate" name="returnDate" type="date" /></div></div>
@@ -550,8 +550,8 @@
 
             <section class="wizard-panel" data-step-panel="3" hidden>
               <div class="wizard-fields">
-                <div class="field"><label for="name">¿Cómo te llamas?</label><div class="field-control"><input id="name" name="name" placeholder="Tu nombre" autocomplete="name" required /></div></div>
-                <div class="field"><label for="email">¿A qué correo te contactamos?</label><div class="field-control"><input id="email" name="email" type="email" placeholder="tunombre@correo.com" autocomplete="email" required /></div></div>
+                <div class="field"><label for="name">¿Cómo te llamas? <span class="required-star" aria-hidden="true">*</span></label><div class="field-control"><input id="name" name="name" placeholder="Tu nombre" autocomplete="name" required /></div></div>
+                <div class="field"><label for="email">¿A qué correo te contactamos? <span class="required-star" aria-hidden="true">*</span></label><div class="field-control"><input id="email" name="email" type="email" placeholder="tunombre@correo.com" autocomplete="email" required /></div></div>
                 <div class="field wizard-field-wide"><label for="details">¿Algo más que debamos saber? <span class="optional-label">Opcional</span></label><div class="field-control textarea-control"><textarea id="details" name="details" rows="4" placeholder="Cuéntanos qué te gustaría hacer o cualquier detalle importante..."></textarea></div></div>
               </div>
               <p class="wizard-tip">Solo usaremos estos datos para preparar y responder tu solicitud.</p>
@@ -559,7 +559,7 @@
 
             <div class="wizard-actions">
               <button class="btn btn-light" id="quoteBack" type="button" hidden>← Volver</button>
-              <span class="wizard-required-note" id="wizardRequiredNote">Solo necesitas completar los campos marcados.</span>
+              <span class="wizard-required-note" id="wizardRequiredNote">Los campos con * son obligatorios.</span>
               <button class="btn" id="quoteNext" type="button">Continuar →</button>
               <button class="btn" id="quoteSubmit" type="submit" hidden>Enviar solicitud →</button>
             </div>
