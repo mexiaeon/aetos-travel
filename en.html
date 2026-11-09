@@ -765,7 +765,7 @@
         });
         let result = {};
         try { result = await response.json(); } catch (_) {}
-        if (!response.ok || result.success === false || result.success === 'false') {
+        if (!response.ok || result.success === false || result.success === 'false' || result.success === undefined) {
           throw new Error(result.message || 'Submission failed');
         }
         quoteForm.querySelectorAll('.wizard-top,.wizard-panel,.wizard-actions,.wizard-privacy').forEach(el => { el.hidden = true; });
@@ -775,9 +775,15 @@
         notice.classList.add('show');
         notice.classList.add('success');
       } catch (error) {
-        notice.textContent = IS_ENGLISH
-          ? 'We could not send your request right now. Please try again in a moment or email aetostravel@gmail.com.'
-          : 'No pudimos enviar tu solicitud en este momento. Inténtalo de nuevo o escríbenos a aetostravel@gmail.com.';
+        const serviceMessage = String(error && error.message ? error.message : '').toLowerCase();
+        const needsActivation = serviceMessage.includes('activation') || serviceMessage.includes('activate form') || serviceMessage.includes('actived');
+        notice.textContent = needsActivation
+          ? (IS_ENGLISH
+              ? 'The online quote form is waiting for AETOS TRAVEL to activate its email connection. This is a one-time setup for the agency, not for you. Your request was not sent. Please try again later or contact aetostravel@gmail.com.'
+              : 'El formulario todavía necesita que AETOS TRAVEL active la conexión de correo. Es una configuración única de la agencia, no del cliente. Tu solicitud no se envió. Inténtalo más tarde o contacta a aetostravel@gmail.com.')
+          : (IS_ENGLISH
+              ? 'Your request was not sent. Please try again. If the problem continues, contact aetostravel@gmail.com.'
+              : 'Tu solicitud no se envió. Inténtalo de nuevo. Si el problema continúa, contacta a aetostravel@gmail.com.');
         notice.classList.add('show');
         submitButton.disabled = false;
         submitButton.textContent = originalButtonText;
