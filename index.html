@@ -374,7 +374,8 @@
     .btn-light { background:#f0eee8; color:#20221f; }
     .btn-light:hover { background:#e7e2d7; color:#20221f; }
     .hero { background:#20221f; }
-    .hero-cover { width:100%; height:clamp(360px, 54vw, 650px); object-fit:cover; object-position:center; }
+    /* Preserve the complete designed cover artwork; do not crop it like a background photo. */
+    .hero-cover { width:100%; height:auto; object-fit:contain; object-position:center; }
     .hero-after { background:#20221f; color:#fffefa; padding:24px 22px; gap:32px; }
     .hero-after strong { display:block; font:500 clamp(20px,2.3vw,29px) Georgia,serif; letter-spacing:.015em; margin-bottom:5px; }
     .hero-after span { color:rgba(255,254,250,.68); font-size:12px; letter-spacing:.06em; }
@@ -426,7 +427,7 @@
     .skip-link:focus { background:#20221f; }
     @media (max-width:650px) {
       .brand.logo-brand img { width:56px; height:56px; }
-      .hero-cover { height:clamp(300px, 88vw, 470px); }
+      .hero-cover { height:auto; object-fit:contain; }
       .hero-after { padding:22px 18px; text-align:center; }
       .search-wrap { margin-top:-24px; }
       .section { padding:72px 0; }
