@@ -374,8 +374,9 @@
     .btn-light { background:#f0eee8; color:#20221f; }
     .btn-light:hover { background:#e7e2d7; color:#20221f; }
     .hero { background:#20221f; }
-    /* Preserve the complete designed cover artwork; do not crop it like a background photo. */
-    .hero-cover { width:100%; height:auto; object-fit:contain; object-position:center; }
+    /* Hero: render the entire banner at its natural aspect ratio, never as a cropped flex background. */
+    .hero { display:block; min-height:0; height:auto; overflow:visible; position:relative; background:#20221f; }
+    .hero-cover { display:block; width:100%; max-width:100%; height:auto; object-fit:initial; object-position:center; flex:none; }
     .hero-after { background:#20221f; color:#fffefa; padding:24px 22px; gap:32px; }
     .hero-after strong { display:block; font:500 clamp(20px,2.3vw,29px) Georgia,serif; letter-spacing:.015em; margin-bottom:5px; }
     .hero-after span { color:rgba(255,254,250,.68); font-size:12px; letter-spacing:.06em; }
