@@ -375,8 +375,8 @@
     .btn-light:hover { background:#e7e2d7; color:#20221f; }
     .hero { background:#20221f; }
     /* Hero: render the entire banner at its natural aspect ratio, never as a cropped flex background. */
-    .hero { display:block; min-height:0; height:auto; overflow:visible; position:relative; background:#20221f; }
-    .hero-cover { display:block; width:100%; max-width:100%; height:auto; object-fit:initial; object-position:center; flex:none; }
+    .hero { display:block; width:100vw; max-width:100vw; min-height:0; height:auto; margin-left:calc(50% - 50vw); overflow:visible; position:relative; background:#20221f; }
+    .hero-cover { display:block; width:100%; max-width:100%; height:auto !important; object-fit:fill; object-position:center; flex:none; margin:0; }
     .hero-after { background:#20221f; color:#fffefa; padding:24px 22px; gap:32px; }
     .hero-after strong { display:block; font:500 clamp(20px,2.3vw,29px) Georgia,serif; letter-spacing:.015em; margin-bottom:5px; }
     .hero-after span { color:rgba(255,254,250,.68); font-size:12px; letter-spacing:.06em; }
@@ -428,7 +428,7 @@
     .skip-link:focus { background:#20221f; }
     @media (max-width:650px) {
       .brand.logo-brand img { width:56px; height:56px; }
-      .hero-cover { height:auto; object-fit:contain; }
+      .hero-cover { width:100%; max-width:100%; height:auto !important; object-fit:fill; }
       .hero-after { padding:22px 18px; text-align:center; }
       .search-wrap { margin-top:-24px; }
       .section { padding:72px 0; }
@@ -454,7 +454,7 @@
 
   <main id="main-content">
     <section class="hero" id="inicio" aria-label="Portada AETOS TRAVEL">
-      <img class="hero-cover" src="aetos-cover.webp" alt="AETOS TRAVEL: explora, descubre y pertenece. El mundo te espera.">
+      <img class="hero-cover" src="aetos-cover.webp?v=2" alt="AETOS TRAVEL: explora, descubre y pertenece. El mundo te espera.">
       <div class="hero-after"><div><strong>Tu próxima aventura comienza aquí.</strong><span> Viajes a medida por Sudamérica y Europa.</span></div><a class="btn" href="#cotizar">Solicita tu cotización ↗</a></div>
     </section>
 
