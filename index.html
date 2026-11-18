@@ -346,6 +346,9 @@
       .wizard-actions .btn { flex:1; }
     }
 
+    /* Clean, independent banner frame: preserve the complete source image without cropping. */
+    .hero-banner-frame { display:block !important; width:100% !important; max-width:none !important; height:auto !important; min-height:0 !important; margin:0 !important; padding:0 !important; overflow:visible !important; background:#20221f; }
+    .hero-banner-frame img { display:block !important; width:100% !important; max-width:none !important; height:auto !important; aspect-ratio:auto !important; object-fit:contain !important; object-position:center !important; }
     /* AETOS TRAVEL — refinamiento visual premium */
     :root {
       --ink: #20221f;
@@ -453,8 +456,8 @@
   </header>
 
   <main id="main-content">
-    <section class="hero" id="inicio" aria-label="Portada AETOS TRAVEL">
-      <img class="hero-cover" src="aetos-cover.webp?v=3" alt="AETOS TRAVEL: explora, descubre y pertenece. El mundo te espera.">
+    <section class="hero-banner-frame" id="inicio" aria-label="Portada AETOS TRAVEL">
+      <img src="aetos-cover.webp?v=4" alt="AETOS TRAVEL: explora, descubre y pertenece. El mundo te espera." style="display:block;width:100%;height:auto;max-width:none;margin:0;padding:0;object-fit:contain;">
       <div class="hero-after"><div><strong>Tu próxima aventura comienza aquí.</strong><span> Viajes a medida por Sudamérica y Europa.</span></div><a class="btn" href="#cotizar">Solicita tu cotización ↗</a></div>
     </section>
 
